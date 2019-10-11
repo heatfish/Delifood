@@ -1,0 +1,29 @@
+<ion-header>
+  <ion-navbar color="danger">
+    <ion-title>transport</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding >
+  <ion-card class="div">
+    <ion-card-title>ข้อมูลติดต่อ</ion-card-title>
+    <ion-item >
+      <ion-label stacked>ที่อยู่จัดส่ง</ion-label>
+      <ion-input type="text" [(ngModel)]="data.address"></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label stacked>เวลาจัดส่ง <a>(etc. 6.00 14.00)</a></ion-label>
+      <!-- <ion-datetime displayFormat="HH:mm"></ion-datetime> -->
+      <ion-input type="text" [(ngModel)]="data.time"></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label stacked>จุดสังเกต</ion-label>
+      <ion-input type="text" [(ngModel)]="data.landmark"></ion-input>
+    </ion-item>
+  </ion-card>
+
+
+  <button ion-button style="float:right;" (click)="ContinueAddToBill(data.address,data.time,data.landmark)">เสร็จ</button>
+</ion-content>

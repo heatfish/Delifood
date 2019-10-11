@@ -1,0 +1,33 @@
+<ion-header>
+  <ion-navbar color="danger">
+    <ion-title >
+      order-list
+   </ion-title>
+    <button ion-button clear class="icon" (click)="gohomePage()">
+        <ion-icon name="home"></ion-icon>
+      </button>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding class="background-gray">
+  <!-- <ion-item *ngFor="let n of shop_name">
+{{n}}
+  </ion-item> -->
+
+<ion-card *ngFor="let n of shop_name; let i = index;">
+<ion-item>
+
+<ion-thumbnail item-start>
+<img src="">
+</ion-thumbnail>  
+
+<b class="left">ร้าน {{n}}<br><button ion-button  outline (click)="shopinfo(shop_id[i])">รายละเอียด</button></b><br>
+
+
+<a class="right">รวม 0 ชิ้น<br>ราคา บาท</a>
+
+</ion-item>
+</ion-card>
+
+
+</ion-content>

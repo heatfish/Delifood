@@ -1,0 +1,33 @@
+<ion-header>
+  <ion-navbar color="danger">
+    <ion-title>detail-order</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding class="background-gray">
+
+
+  <ion-grid >
+    <ion-card style="height: 400px;" >
+  
+        <ion-row *ngFor="let d of data" style="margin-bottom:-20px; ">
+          <ion-col col-6 style="padding:20px">
+            <p>{{d.name}}</p>
+          </ion-col>
+          <ion-col col-2></ion-col>
+          <ion-col col-4 style="padding:20px ;">
+            <p style="float: right">{{d.total}} ชิ้น</p>
+          </ion-col>
+        </ion-row>
+   
+
+    </ion-card>
+  </ion-grid>
+
+  <!-- <ion-footer>
+    <ion-navbar color="danger" *ngFor="let d of data">
+      <p style="color:white;text-align: right;margin:7px;">รวม {{d.total}} ชิ้น<br>ราคารวม {{pricesum}} บาท</p>
+
+    </ion-navbar>
+  </ion-footer> -->
+</ion-content>

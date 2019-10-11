@@ -1,0 +1,40 @@
+<!--
+  Generated template for the MenuPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+  <ion-navbar color="danger">
+    <ion-title>menu</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+  <img
+    src="https://marketplace.canva.com/MAC5oKacMGY/1/0/thumbnail_large-5/canva-black-with-utensils-icon-restaurant-logo-MAC5oKacMGY.jpg"
+    alt="">
+
+
+  <ion-item *ngFor="let d of data" (click)="addtoCart(d.name,d.item_id,d.price,d.picture)">
+    <ion-thumbnail item-start>
+      <img src="{{d.picture}}">
+    </ion-thumbnail>
+    <h2>{{d.name}}</h2>
+    <p>{{d.price}}บาท</p>
+  </ion-item>
+
+
+  <ion-fab right (click)="goadditemPage(shop_id)" >
+    <button ion-fab class="fabcon" display="hidden">
+      <ion-icon name="add"style="font-size:40px "></ion-icon>
+    </button>
+  </ion-fab>
+
+  <ion-fab right bottom (click)="goCartPage()">
+    <button ion-fab color="dark">
+      <ion-icon name="cart"></ion-icon>
+    </button>
+  </ion-fab>
+
+</ion-content>

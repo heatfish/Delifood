@@ -1,0 +1,42 @@
+<ion-header>
+  <ion-navbar color="danger">
+    <ion-title>
+      Food deli
+    </ion-title>
+
+    <button ion-button clear class="icon" (click)="goCartPage()">
+      <ion-icon name="cart"></ion-icon>
+    </button>
+
+    <ion-buttons end>
+      <button ion-button (click)="goLoginPage()">
+        <ion-icon name="contact" style="font-size:30px"></ion-icon>
+      </button>
+    </ion-buttons>
+
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding >
+
+    <button ion-button outline block color="danger" (click)="goorderlistPage()">OrderPage</button>
+
+  <ion-item *ngFor="let d of data" (click)="goMenuPage(d.shop_id)">
+    <ion-thumbnail item-start>
+      <img src="{{d.picture}}">
+    </ion-thumbnail>
+    <h2>ร้าน{{d.name}}</h2>
+    รหัสร้าน {{d.shop_id}}
+  </ion-item>
+
+
+
+  <ion-fab right bottom (click)="goaddshopPage()" >
+    <button ion-fab class="fabcon">
+      <ion-icon name="add" style="font-size:40px "></ion-icon>
+    </button>
+  </ion-fab>
+
+
+
+</ion-content>

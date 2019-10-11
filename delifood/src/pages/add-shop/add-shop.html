@@ -1,0 +1,40 @@
+<ion-header>
+  <ion-navbar color="danger">
+    
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding class="background-gray">
+    
+  <ion-list>
+    <ion-card>
+    <ion-title style="margin-top:10px;">add-shop</ion-title>
+        <ion-item>
+          <ion-label floating>Name</ion-label>
+          <ion-input type="text" [(ngModel)]="data.name"></ion-input>
+        </ion-item>
+    
+        <ion-item>
+          <ion-label floating>Type</ion-label>
+          <ion-input type="text" [(ngModel)]="data.type"></ion-input>
+        </ion-item>
+
+        <ion-item>
+          <ion-label floating>Tel.</ion-label>
+          <ion-input type="tel" [(ngModel)]="data.tel"></ion-input>
+        </ion-item>    
+        
+        <ion-item>
+          <ion-label floating>Picture (<b class="b">Url:</b>)</ion-label>
+          <ion-input type="text" [(ngModel)]="data.picture"></ion-input>
+        </ion-item>  
+        
+    
+        <div padding text-center>
+          <button ion-button block (click)="addshop()">Add Shop</button>
+    
+        </div>
+      </ion-card>
+      </ion-list>
+
+</ion-content>
