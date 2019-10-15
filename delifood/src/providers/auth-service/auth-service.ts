@@ -2,11 +2,11 @@ import {Injectable} from '@angular/core';
 import {Http, Headers} from '@angular/http';
 import 'rxjs/add/operator/map';
 
-let apiUrl = "http://127.0.0.1/fooddeliAPI/api/";
+let apiUrl = "http://127.0.0.1/api/";
 
 @Injectable()
 export class AuthService {
-
+  login_status:boolean=false;
   constructor(public http : Http) {
     console.log('Hello AuthService Provider');
   }

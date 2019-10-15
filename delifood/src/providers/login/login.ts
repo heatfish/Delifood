@@ -11,10 +11,9 @@ import { Injectable } from '@angular/core';
 export class LoginProvider {
 
 user_id:string;
-
+loginStatus:boolean=false;
   public login={
     user_id:null
-  
   }
 
   constructor(public http: HttpClient) {
