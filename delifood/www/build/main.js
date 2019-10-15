@@ -267,6 +267,7 @@ var SignupPage = /** @class */ (function () {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__cart_cart__ = __webpack_require__(43);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_ionic_angular__ = __webpack_require__(11);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__login_login__ = __webpack_require__(44);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -276,6 +277,7 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
+
 
 
 
@@ -321,13 +323,23 @@ var MenuPage = /** @class */ (function () {
                 }, {
                     text: 'เพิ่ม',
                     handler: function (data) {
-                        _this.authService.postData(_this.datas, 'addToCart').then(function (result) {
-                            _this.responseData = result;
-                            console.log(_this.datas);
-                            // this.navCtrl.push(LoginPage); // ลิ้งหน้าไปที่
-                        }, function (err) {
-                            // Error log
-                        });
+                        if (_this.authService.login_status != false) {
+                            _this.authService.postData(_this.datas, 'addToCart').then(function (result) {
+                                _this.responseData = result;
+                                console.log(_this.datas);
+                            }, function (err) {
+                                // Error log
+                            });
+                        }
+                        else {
+                            var alert_1 = _this.alertCtrl.create({
+                                title: 'Please login',
+                                subTitle: 'please login before add order',
+                                buttons: ['OK']
+                            });
+                            alert_1.present();
+                            _this.navCtrl.setRoot(__WEBPACK_IMPORTED_MODULE_5__login_login__["a" /* LoginPage */]);
+                        }
                     }
                 }
             ]
@@ -581,10 +593,11 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 
 
 
-var apiUrl = "http://127.0.0.1/fooddeliAPI/api/";
+var apiUrl = "http://127.0.0.1/api/";
 var AuthService = /** @class */ (function () {
     function AuthService(http) {
         this.http = http;
+        this.login_status = false;
         console.log('Hello AuthService Provider');
     }
     AuthService.prototype.postData = function (credentials, type) {
@@ -699,6 +712,7 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 var LoginProvider = /** @class */ (function () {
     function LoginProvider(http) {
         this.http = http;
+        this.loginStatus = false;
         this.login = {
             user_id: null
         };
@@ -826,12 +840,14 @@ Object(__WEBPACK_IMPORTED_MODULE_0__angular_platform_browser_dynamic__["a" /* pl
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_17__pages_cart_cart__ = __webpack_require__(43);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_18__pages_order_list_order_list__ = __webpack_require__(111);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_19__providers_login_login__ = __webpack_require__(166);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_20__ionic_native_google_plus__ = __webpack_require__(288);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
     else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
     return c > 3 && r && Object.defineProperty(target, key, r), r;
 };
+
 
 
 
@@ -910,6 +926,7 @@ var AppModule = /** @class */ (function () {
                 __WEBPACK_IMPORTED_MODULE_8_ionic_angular__["a" /* AlertController */], __WEBPACK_IMPORTED_MODULE_12__providers_auth_service_auth_service__["a" /* AuthService */],
                 { provide: __WEBPACK_IMPORTED_MODULE_7__angular_core__["u" /* ErrorHandler */], useClass: __WEBPACK_IMPORTED_MODULE_8_ionic_angular__["c" /* IonicErrorHandler */] },
                 __WEBPACK_IMPORTED_MODULE_19__providers_login_login__["a" /* LoginProvider */],
+                [__WEBPACK_IMPORTED_MODULE_20__ionic_native_google_plus__["a" /* GooglePlus */]]
             ]
         })
     ], AppModule);
@@ -1029,7 +1046,7 @@ var HomePage = /** @class */ (function () {
     };
     HomePage = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_5__angular_core__["m" /* Component */])({
-            selector: 'page-home',template:/*ion-inline-start:"/Users/chalermchai/Documents/ionic/Delifood/delifood/src/pages/home/home.html"*/'<ion-header>\n  <ion-navbar color="danger">\n    <ion-title>\n      Food deli\n    </ion-title>\n\n    <button ion-button clear class="icon" (click)="goCartPage()">\n      <ion-icon name="cart"></ion-icon>\n    </button>\n\n    <ion-buttons end>\n      <button ion-button (click)="goLoginPage()">\n        <ion-icon name="contact" style="font-size:30px"></ion-icon>\n      </button>\n    </ion-buttons>\n\n  </ion-navbar>\n</ion-header>\n\n<ion-content padding >\n\n    <button ion-button outline block color="danger" (click)="goorderlistPage()">OrderPage</button>\n\n  <ion-item *ngFor="let d of data" (click)="goMenuPage(d.shop_id)">\n    <ion-thumbnail item-start>\n      <img src="{{d.picture}}">\n    </ion-thumbnail>\n    <h2>ร้าน{{d.name}}</h2>\n    รหัสร้าน {{d.shop_id}}\n  </ion-item>\n\n\n\n  <ion-fab right bottom (click)="goaddshopPage()" >\n    <button ion-fab class="fabcon">\n      <ion-icon name="add" style="font-size:40px "></ion-icon>\n    </button>\n  </ion-fab>\n\n\n\n</ion-content>'/*ion-inline-end:"/Users/chalermchai/Documents/ionic/Delifood/delifood/src/pages/home/home.html"*/
+            selector: 'page-home',template:/*ion-inline-start:"/Users/chalermchai/Documents/ionic/Delifood/delifood/src/pages/home/home.html"*/'<ion-header>\n    <ion-navbar color="danger">\n        <ion-title>\n            Food deli\n        </ion-title>\n\n        <button ion-button clear *ngIf="authService.login_status==true" class="icon" (click)="goCartPage()">\n      <ion-icon name="cart"></ion-icon>\n    </button>\n\n        <ion-buttons end>\n            <button ion-button (click)="goLoginPage()">\n        <ion-icon name="contact" style="font-size:30px"></ion-icon>\n      </button>\n        </ion-buttons>\n\n    </ion-navbar>\n</ion-header>\n\n<ion-content padding>\n\n    <button ion-button outline block color="danger" (click)="goorderlistPage()">OrderPage</button>\n\n    <ion-item *ngFor="let d of data" (click)="goMenuPage(d.shop_id)">\n        <ion-thumbnail item-start>\n            <img src="{{d.picture}}">\n        </ion-thumbnail>\n        <h2>ร้าน{{d.name}}</h2>\n        รหัสร้าน {{d.shop_id}}\n    </ion-item>\n\n\n\n    <ion-fab right bottom *ngIf="authService.login_status==true" (click)="goaddshopPage()">\n        <button ion-fab class="fabcon">\n      <ion-icon name="add" style="font-size:40px "></ion-icon>\n    </button>\n    </ion-fab>\n\n\n\n</ion-content>'/*ion-inline-end:"/Users/chalermchai/Documents/ionic/Delifood/delifood/src/pages/home/home.html"*/
         }),
         __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_6_ionic_angular__["f" /* NavController */], __WEBPACK_IMPORTED_MODULE_1__providers_auth_service_auth_service__["a" /* AuthService */]])
     ], HomePage);
@@ -1176,10 +1193,9 @@ var CartPage = /** @class */ (function () {
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return LoginPage; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__providers_auth_service_auth_service__ = __webpack_require__(13);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__home_home__ = __webpack_require__(34);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__account_account__ = __webpack_require__(209);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__signup_signup__ = __webpack_require__(108);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5_ionic_angular__ = __webpack_require__(11);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__signup_signup__ = __webpack_require__(108);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__angular_core__ = __webpack_require__(0);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_ionic_angular__ = __webpack_require__(11);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -1189,7 +1205,6 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
-
 
 
 
@@ -1207,8 +1222,10 @@ var LoginPage = /** @class */ (function () {
         this.navParams = navParams;
         this.authService = authService;
         this.alertCtrl = alertCtrl;
-        this.username = null;
-        this.password = null;
+        this.check = {
+            username: "d",
+            password: "d"
+        };
     }
     LoginPage.prototype.alert = function () {
         var alert = this.alertCtrl.create({
@@ -1220,46 +1237,38 @@ var LoginPage = /** @class */ (function () {
     };
     LoginPage.prototype.goSignupPage = function () {
         // this.navCtrl.push(SignupPage);
-        this.navCtrl.push(__WEBPACK_IMPORTED_MODULE_3__signup_signup__["a" /* SignupPage */]);
+        this.navCtrl.push(__WEBPACK_IMPORTED_MODULE_2__signup_signup__["a" /* SignupPage */]);
     };
     LoginPage.prototype.login = function () {
-        this.navCtrl.setRoot(__WEBPACK_IMPORTED_MODULE_2__account_account__["a" /* AccountPage */]);
-        //   let NonSpaceUser = this.username == null || this.username.trim() === '';
-        //   let NonSpacePassword = this.password == null || this.password.trim() === '';
-        //   if (NonSpaceUser) {
-        //     this.alert();
-        //   }
-        //   else {
-        //     if (NonSpacePassword) {
-        //       this.alert();
-        //     }
-        //     else {
-        //       console.log(this.username + " " + this.password);
-        //       this.authService.postData(this.data, "getAllUser").then((result) => {
-        //         this.responseData = result;
-        //         this.data = this.responseData.data;
-        //         console.log(this.data);
-        //         console.log(this.username);
-        //       }, (err) => {
-        //         console.error(err);
-        //       });
-        //       if (this.data == this.username) {
-        //         console.log("Ok" + this.username);
-        //       }
-        //       else {
-        //         console.log("false login" + this.username);
-        //       }
-        //     }
+        var _this = this;
+        this.authService.postData(this.check, 'loginCheck').then(function (result) {
+            _this.responseData = result;
+            _this.data = _this.responseData.data;
+            console.log(_this.data);
+            if (_this.data.length != 0) {
+                _this.navCtrl.push(__WEBPACK_IMPORTED_MODULE_1__home_home__["a" /* HomePage */]);
+                _this.authService.login_status = true;
+                console.log(_this.authService.login_status);
+            }
+            else {
+                var alert = _this.alertCtrl.create({
+                    title: 'Login Fail',
+                    subTitle: 'Please check your username or password',
+                    buttons: ['OK']
+                });
+                alert.present();
+            }
+        }, function (err) {
+        });
     };
-    // }
     LoginPage.prototype.gohomePage = function () {
         this.navCtrl.setRoot(__WEBPACK_IMPORTED_MODULE_1__home_home__["a" /* HomePage */]);
     };
     LoginPage = __decorate([
-        Object(__WEBPACK_IMPORTED_MODULE_4__angular_core__["m" /* Component */])({
-            selector: 'page-login',template:/*ion-inline-start:"/Users/chalermchai/Documents/ionic/Delifood/delifood/src/pages/login/login.html"*/'<!--\n  Generated template for the LoginPage page.\n\n  See http://ionicframework.com/docs/components/#navigation for more info on\n  Ionic pages and navigation.\n-->\n<ion-header>\n  <ion-navbar color="danger">\n    <ion-title>Log In</ion-title>\n    <button ion-button clear class="icon" (click)="gohomePage()">\n      <ion-icon name="home"></ion-icon>\n    </button>\n  </ion-navbar>\n</ion-header>\n\n<ion-content padding text-center>\n  <img src="https://freelogo-assets.s3.amazonaws.com/sites/all/themes/freelogoservices/images/smalllogorestaurant1.jpg"\n    alt="">\n  <ion-item>\n    <ion-label>Username</ion-label>\n    <ion-input type="text" [(ngModel)]="username" ></ion-input>\n  </ion-item>\n\n  <ion-item>\n    <ion-label>Password</ion-label>\n    <ion-input type="password" [(ngModel)]="password"></ion-input>\n\n\n  </ion-item>\n  <div padding text-center>\n    <button ion-button (click)="goSignupPage()" color="dark">Sign Up</button>\n    <button ion-button (click)="login()" color="dark">Log In</button>\n  </div>\n\n</ion-content>'/*ion-inline-end:"/Users/chalermchai/Documents/ionic/Delifood/delifood/src/pages/login/login.html"*/,
+        Object(__WEBPACK_IMPORTED_MODULE_3__angular_core__["m" /* Component */])({
+            selector: 'page-login',template:/*ion-inline-start:"/Users/chalermchai/Documents/ionic/Delifood/delifood/src/pages/login/login.html"*/'<!--\n  Generated template for the LoginPage page.\n\n  See http://ionicframework.com/docs/components/#navigation for more info on\n  Ionic pages and navigation.\n-->\n<ion-header>\n    <ion-navbar color="danger">\n        <ion-title>Log In</ion-title>\n        <button ion-button clear class="icon" (click)="gohomePage()">\n      <ion-icon name="home"></ion-icon>\n    </button>\n    </ion-navbar>\n</ion-header>\n\n<ion-content padding text-center>\n    <img src="https://freelogo-assets.s3.amazonaws.com/sites/all/themes/freelogoservices/images/smalllogorestaurant1.jpg" alt="">\n    <ion-item>\n        <ion-label>Username</ion-label>\n        <ion-input type="text" [(ngModel)]="check.username"></ion-input>\n    </ion-item>\n\n    <ion-item>\n        <ion-label>Password</ion-label>\n        <ion-input type="password" [(ngModel)]="check.password"></ion-input>\n\n\n    </ion-item>\n    <div padding text-center>\n        <button ion-button (click)="goSignupPage()" color="dark">Sign Up</button>\n        <button ion-button (click)="login()" color="dark">Log In</button>\n    </div>\n\n</ion-content>'/*ion-inline-end:"/Users/chalermchai/Documents/ionic/Delifood/delifood/src/pages/login/login.html"*/,
         }),
-        __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_5_ionic_angular__["f" /* NavController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_5_ionic_angular__["f" /* NavController */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_5_ionic_angular__["g" /* NavParams */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_5_ionic_angular__["g" /* NavParams */]) === "function" && _b || Object, typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_0__providers_auth_service_auth_service__["a" /* AuthService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_0__providers_auth_service_auth_service__["a" /* AuthService */]) === "function" && _c || Object, typeof (_d = typeof __WEBPACK_IMPORTED_MODULE_5_ionic_angular__["a" /* AlertController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_5_ionic_angular__["a" /* AlertController */]) === "function" && _d || Object])
+        __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_4_ionic_angular__["f" /* NavController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_4_ionic_angular__["f" /* NavController */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_4_ionic_angular__["g" /* NavParams */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_4_ionic_angular__["g" /* NavParams */]) === "function" && _b || Object, typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_0__providers_auth_service_auth_service__["a" /* AuthService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_0__providers_auth_service_auth_service__["a" /* AuthService */]) === "function" && _c || Object, typeof (_d = typeof __WEBPACK_IMPORTED_MODULE_4_ionic_angular__["a" /* AlertController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_4_ionic_angular__["a" /* AlertController */]) === "function" && _d || Object])
     ], LoginPage);
     return LoginPage;
     var _a, _b, _c, _d;

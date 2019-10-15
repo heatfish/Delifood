@@ -3,6 +3,7 @@ import { AuthService } from './../../providers/auth-service/auth-service';
 import { CartPage } from './../cart/cart';
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams, AlertController } from 'ionic-angular';
+import { LoginPage } from '../login/login';
 
 
 @IonicPage()
@@ -55,17 +56,23 @@ export class MenuPage {
         }, {
           text: 'เพิ่ม',
           handler: data => {
-            this.authService.postData(this.datas, 'addToCart').then((result) => {
-              this.responseData = result;
-
-              console.log(this.datas);
-
-
-              // this.navCtrl.push(LoginPage); // ลิ้งหน้าไปที่
-
-            }, (err) => {
-              // Error log
-            });
+            if(this.authService.login_status!=false){
+              this.authService.postData(this.datas, 'addToCart').then((result) => {
+                this.responseData = result;
+                console.log(this.datas);
+              }, (err) => {
+                // Error log
+              });
+            }else{
+              const alert = this.alertCtrl.create({
+                title: 'Please login',
+                subTitle: 'please login before add order',
+                buttons: ['OK']
+              });
+              alert.present();
+              this.navCtrl.setRoot(LoginPage);
+            }
+           
 
           }
         }

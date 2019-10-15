@@ -22,7 +22,7 @@ import { CartPage } from '../pages/cart/cart';
 import { AlertController } from 'ionic-angular';
 import { OrderListPage } from '../pages/order-list/order-list';
 import { LoginProvider } from '../providers/login/login';
-
+import { GooglePlus } from '@ionic-native/google-plus';
 
 
 
@@ -40,6 +40,7 @@ import { LoginProvider } from '../providers/login/login';
     OrderListPage,
     AddShopPage,
     DetailOrderPage
+   
   
   ],
   imports: [
@@ -61,6 +62,7 @@ import { LoginProvider } from '../providers/login/login';
     OrderListPage,
     AddShopPage,
     DetailOrderPage
+   
     
   ],
   providers: [
@@ -69,6 +71,7 @@ import { LoginProvider } from '../providers/login/login';
     AlertController,AuthService,
     {provide: ErrorHandler, useClass: IonicErrorHandler},
     LoginProvider,
+    [GooglePlus]
     
    
   ]
