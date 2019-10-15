@@ -357,10 +357,9 @@ var MenuPage = /** @class */ (function () {
         Object(__WEBPACK_IMPORTED_MODULE_3__angular_core__["m" /* Component */])({
             selector: 'page-menu',template:/*ion-inline-start:"/Users/chalermchai/Documents/ionic/Delifood/delifood/src/pages/menu/menu.html"*/'<!--\n  Generated template for the MenuPage page.\n\n  See http://ionicframework.com/docs/components/#navigation for more info on\n  Ionic pages and navigation.\n-->\n<ion-header>\n  <ion-navbar color="danger">\n    <ion-title>menu</ion-title>\n  </ion-navbar>\n</ion-header>\n\n<ion-content padding>\n  <img\n    src="https://marketplace.canva.com/MAC5oKacMGY/1/0/thumbnail_large-5/canva-black-with-utensils-icon-restaurant-logo-MAC5oKacMGY.jpg"\n    alt="">\n\n\n  <ion-item *ngFor="let d of data" (click)="addtoCart(d.name,d.item_id,d.price,d.picture)">\n    <ion-thumbnail item-start>\n      <img src="{{d.picture}}">\n    </ion-thumbnail>\n    <h2>{{d.name}}</h2>\n    <p>{{d.price}}บาท</p>\n  </ion-item>\n\n\n  <ion-fab right (click)="goadditemPage(shop_id)" >\n    <button ion-fab class="fabcon" display="hidden">\n      <ion-icon name="add"style="font-size:40px "></ion-icon>\n    </button>\n  </ion-fab>\n\n  <ion-fab right bottom (click)="goCartPage()">\n    <button ion-fab color="dark">\n      <ion-icon name="cart"></ion-icon>\n    </button>\n  </ion-fab>\n\n</ion-content>'/*ion-inline-end:"/Users/chalermchai/Documents/ionic/Delifood/delifood/src/pages/menu/menu.html"*/,
         }),
-        __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_4_ionic_angular__["a" /* AlertController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_4_ionic_angular__["a" /* AlertController */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_4_ionic_angular__["f" /* NavController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_4_ionic_angular__["f" /* NavController */]) === "function" && _b || Object, typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_1__providers_auth_service_auth_service__["a" /* AuthService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1__providers_auth_service_auth_service__["a" /* AuthService */]) === "function" && _c || Object, typeof (_d = typeof __WEBPACK_IMPORTED_MODULE_4_ionic_angular__["g" /* NavParams */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_4_ionic_angular__["g" /* NavParams */]) === "function" && _d || Object])
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_4_ionic_angular__["a" /* AlertController */], __WEBPACK_IMPORTED_MODULE_4_ionic_angular__["f" /* NavController */], __WEBPACK_IMPORTED_MODULE_1__providers_auth_service_auth_service__["a" /* AuthService */], __WEBPACK_IMPORTED_MODULE_4_ionic_angular__["g" /* NavParams */]])
     ], MenuPage);
     return MenuPage;
-    var _a, _b, _c, _d;
 }());
 
 //# sourceMappingURL=menu.js.map
@@ -614,10 +613,9 @@ var AuthService = /** @class */ (function () {
     };
     AuthService = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["A" /* Injectable */])(),
-        __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1__angular_http__["b" /* Http */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1__angular_http__["b" /* Http */]) === "function" && _a || Object])
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1__angular_http__["b" /* Http */]])
     ], AuthService);
     return AuthService;
-    var _a;
 }());
 
 //# sourceMappingURL=auth-service.js.map
@@ -720,10 +718,9 @@ var LoginProvider = /** @class */ (function () {
     }
     LoginProvider = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_1__angular_core__["A" /* Injectable */])(),
-        __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_0__angular_common_http__["a" /* HttpClient */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_0__angular_common_http__["a" /* HttpClient */]) === "function" && _a || Object])
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_0__angular_common_http__["a" /* HttpClient */]])
     ], LoginProvider);
     return LoginProvider;
-    var _a;
 }());
 
 //# sourceMappingURL=login.js.map
@@ -1251,12 +1248,12 @@ var LoginPage = /** @class */ (function () {
                 console.log(_this.authService.login_status);
             }
             else {
-                var alert = _this.alertCtrl.create({
+                var alert_1 = _this.alertCtrl.create({
                     title: 'Login Fail',
                     subTitle: 'Please check your username or password',
                     buttons: ['OK']
                 });
-                alert.present();
+                alert_1.present();
             }
         }, function (err) {
         });
@@ -1268,10 +1265,9 @@ var LoginPage = /** @class */ (function () {
         Object(__WEBPACK_IMPORTED_MODULE_3__angular_core__["m" /* Component */])({
             selector: 'page-login',template:/*ion-inline-start:"/Users/chalermchai/Documents/ionic/Delifood/delifood/src/pages/login/login.html"*/'<!--\n  Generated template for the LoginPage page.\n\n  See http://ionicframework.com/docs/components/#navigation for more info on\n  Ionic pages and navigation.\n-->\n<ion-header>\n    <ion-navbar color="danger">\n        <ion-title>Log In</ion-title>\n        <button ion-button clear class="icon" (click)="gohomePage()">\n      <ion-icon name="home"></ion-icon>\n    </button>\n    </ion-navbar>\n</ion-header>\n\n<ion-content padding text-center>\n    <img src="https://freelogo-assets.s3.amazonaws.com/sites/all/themes/freelogoservices/images/smalllogorestaurant1.jpg" alt="">\n    <ion-item>\n        <ion-label>Username</ion-label>\n        <ion-input type="text" [(ngModel)]="check.username"></ion-input>\n    </ion-item>\n\n    <ion-item>\n        <ion-label>Password</ion-label>\n        <ion-input type="password" [(ngModel)]="check.password"></ion-input>\n\n\n    </ion-item>\n    <div padding text-center>\n        <button ion-button (click)="goSignupPage()" color="dark">Sign Up</button>\n        <button ion-button (click)="login()" color="dark">Log In</button>\n    </div>\n\n</ion-content>'/*ion-inline-end:"/Users/chalermchai/Documents/ionic/Delifood/delifood/src/pages/login/login.html"*/,
         }),
-        __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_4_ionic_angular__["f" /* NavController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_4_ionic_angular__["f" /* NavController */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_4_ionic_angular__["g" /* NavParams */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_4_ionic_angular__["g" /* NavParams */]) === "function" && _b || Object, typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_0__providers_auth_service_auth_service__["a" /* AuthService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_0__providers_auth_service_auth_service__["a" /* AuthService */]) === "function" && _c || Object, typeof (_d = typeof __WEBPACK_IMPORTED_MODULE_4_ionic_angular__["a" /* AlertController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_4_ionic_angular__["a" /* AlertController */]) === "function" && _d || Object])
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_4_ionic_angular__["f" /* NavController */], __WEBPACK_IMPORTED_MODULE_4_ionic_angular__["g" /* NavParams */], __WEBPACK_IMPORTED_MODULE_0__providers_auth_service_auth_service__["a" /* AuthService */], __WEBPACK_IMPORTED_MODULE_4_ionic_angular__["a" /* AlertController */]])
     ], LoginPage);
     return LoginPage;
-    var _a, _b, _c, _d;
 }());
 
 //# sourceMappingURL=login.js.map
