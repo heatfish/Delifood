@@ -51460,30 +51460,65 @@ ion-navbar.toolbar {
   color: #696767;
 }
 
-ion-input {
+page-home ion-input {
   color: gray;
 }
 
-ion-navbar {
+page-home ion-navbar {
   color: #f53d3d;
 }
 
-.icon {
+page-home .icon {
   float: right;
   color: white;
   right: -10px;
 }
 
-.fabcon {
+page-home .fabcon {
   background-color: red;
 }
 
-.background-gray {
+page-home .background-gray {
   background-color: #f1efef;
 }
 
-.gray {
+page-home .gray {
   background: gray;
+}
+
+page-home .content {
+  background-color: black;
+}
+
+page-home .shop-img {
+  text-align: center;
+  border-radius: 10px;
+  padding-bottom: 30px;
+  padding-left: 20px;
+  padding-right: 20px;
+}
+
+page-home img {
+  border-radius: 5px;
+  -webkit-filter: blur(0.5px);
+  filter: blur(0.5px);
+}
+
+page-home .shop-name {
+  color: white;
+  font-size: 16px;
+  margin-left: 5%;
+}
+
+page-home .about-shop {
+  padding: 2px;
+  padding-right: 15px;
+  position: center;
+}
+
+page-login .content {
+  background-image: src("../../assets/imgs/foodiesfeed.com_green-salad-with-bread.jpg");
+  background-color: black;
 }
 
 .right {
