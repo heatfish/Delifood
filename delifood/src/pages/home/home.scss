@@ -1,6 +1,61 @@
-ion-input{color: gray;}
-ion-navbar{color:#f53d3d; }
-.icon{float : right;color:white;right: -10px;}
-.fabcon{background-color:red;}
-.background-gray{background-color:rgb(241, 239, 239);}
-.gray{background: gray}
+page-home {
+    ion-input {
+        color: gray;
+    }
+    ion-navbar {
+        color: #f53d3d;
+    }
+    .icon {
+        float: right;
+        color: white;
+        right: -10px;
+    }
+    .fabcon {
+        background-color: red;
+    }
+    .background-gray {
+        background-color: rgb(241, 239, 239);
+    }
+    .gray {
+        background: gray
+    }
+    .content {
+        background-color: black;
+        // background-image: url("../../assets/imgs/satay-chicken-3604856_1920.jpg");
+    }
+    .shop-img {
+        text-align: center;
+        border-radius: 10px;
+        padding-bottom: 30px;
+        padding-left: 20px;
+        padding-right: 20px;
+    }
+    img {
+        border-radius: 5px;
+        filter: blur(0.5px);
+    }
+    .shop-name {
+        color: white;
+        font-size: 16px;
+        margin-left: 5%;
+    }
+    .about-shop {
+        padding: 2px;
+        padding-right: 15px;
+        position: center;
+    }
+    // .bg-image {
+    //     /* The image used */
+    //     background-image: url("../../assets/imgs/satay-chicken-3604856_1920.jpg");
+    //     /* Add the blur effect */
+    //     filter: blur(8px);
+    //     -webkit-filter: blur(8px);
+    //     /* Full height */
+    //     height: 100%;
+    //     /* Center and scale the image nicely */
+    //     background-position: center;
+    //     background-repeat: no-repeat;
+    //     background-size: cover;
+    //     position: fixed;
+    // }
+}

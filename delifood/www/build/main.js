@@ -134,7 +134,7 @@ var AddShopPage = /** @class */ (function () {
 
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return TransportPage; });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__cart_cart__ = __webpack_require__(43);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__cart_cart__ = __webpack_require__(44);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__providers_auth_service_auth_service__ = __webpack_require__(13);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_ionic_angular__ = __webpack_require__(11);
@@ -185,7 +185,7 @@ var TransportPage = /** @class */ (function () {
 
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return SignupPage; });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__login_login__ = __webpack_require__(44);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__login_login__ = __webpack_require__(35);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__providers_auth_service_auth_service__ = __webpack_require__(13);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_ionic_angular__ = __webpack_require__(11);
@@ -264,10 +264,10 @@ var SignupPage = /** @class */ (function () {
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return MenuPage; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__add_item_add_item__ = __webpack_require__(110);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__providers_auth_service_auth_service__ = __webpack_require__(13);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__cart_cart__ = __webpack_require__(43);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__cart_cart__ = __webpack_require__(44);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_ionic_angular__ = __webpack_require__(11);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__login_login__ = __webpack_require__(44);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__login_login__ = __webpack_require__(35);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -639,7 +639,7 @@ var map = {
 		7
 	],
 	"../pages/cart/cart.module": [
-		292,
+		294,
 		6
 	],
 	"../pages/detail-order/detail-order.module": [
@@ -647,7 +647,7 @@ var map = {
 		5
 	],
 	"../pages/login/login.module": [
-		294,
+		292,
 		4
 	],
 	"../pages/menu/menu.module": [
@@ -659,11 +659,11 @@ var map = {
 		2
 	],
 	"../pages/signup/signup.module": [
-		297,
+		298,
 		1
 	],
 	"../pages/transport/transport.module": [
-		298,
+		297,
 		0
 	]
 };
@@ -735,7 +735,7 @@ var LoginProvider = /** @class */ (function () {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__providers_login_login__ = __webpack_require__(166);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__providers_auth_service_auth_service__ = __webpack_require__(13);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__home_home__ = __webpack_require__(34);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__login_login__ = __webpack_require__(44);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__login_login__ = __webpack_require__(35);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_5_ionic_angular__ = __webpack_require__(11);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
@@ -832,9 +832,9 @@ Object(__WEBPACK_IMPORTED_MODULE_0__angular_platform_browser_dynamic__["a" /* pl
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_12__providers_auth_service_auth_service__ = __webpack_require__(13);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_13__app_component__ = __webpack_require__(287);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_14__pages_home_home__ = __webpack_require__(34);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_15__pages_login_login__ = __webpack_require__(44);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_15__pages_login_login__ = __webpack_require__(35);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_16__pages_menu_menu__ = __webpack_require__(109);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_17__pages_cart_cart__ = __webpack_require__(43);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_17__pages_cart_cart__ = __webpack_require__(44);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_18__pages_order_list_order_list__ = __webpack_require__(111);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_19__providers_login_login__ = __webpack_require__(166);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_20__ionic_native_google_plus__ = __webpack_require__(288);
@@ -892,13 +892,13 @@ var AppModule = /** @class */ (function () {
                         { loadChildren: '../pages/account/account.module#AccountPageModule', name: 'AccountPage', segment: 'account', priority: 'low', defaultHistory: [] },
                         { loadChildren: '../pages/add-item/add-item.module#AddItemPageModule', name: 'AddItemPage', segment: 'add-item', priority: 'low', defaultHistory: [] },
                         { loadChildren: '../pages/add-shop/add-shop.module#AddShopPageModule', name: 'AddShopPage', segment: 'add-shop', priority: 'low', defaultHistory: [] },
-                        { loadChildren: '../pages/cart/cart.module#CartPageModule', name: 'CartPage', segment: 'cart', priority: 'low', defaultHistory: [] },
-                        { loadChildren: '../pages/detail-order/detail-order.module#DetailOrderPageModule', name: 'DetailOrderPage', segment: 'detail-order', priority: 'low', defaultHistory: [] },
                         { loadChildren: '../pages/login/login.module#LoginPageModule', name: 'LoginPage', segment: 'login', priority: 'low', defaultHistory: [] },
+                        { loadChildren: '../pages/detail-order/detail-order.module#DetailOrderPageModule', name: 'DetailOrderPage', segment: 'detail-order', priority: 'low', defaultHistory: [] },
+                        { loadChildren: '../pages/cart/cart.module#CartPageModule', name: 'CartPage', segment: 'cart', priority: 'low', defaultHistory: [] },
                         { loadChildren: '../pages/menu/menu.module#MenuPageModule', name: 'MenuPage', segment: 'menu', priority: 'low', defaultHistory: [] },
                         { loadChildren: '../pages/order-list/order-list.module#OrderListPageModule', name: 'OrderListPage', segment: 'order-list', priority: 'low', defaultHistory: [] },
-                        { loadChildren: '../pages/signup/signup.module#SignupPageModule', name: 'SignupPage', segment: 'signup', priority: 'low', defaultHistory: [] },
-                        { loadChildren: '../pages/transport/transport.module#TransportPageModule', name: 'TransportPage', segment: 'transport', priority: 'low', defaultHistory: [] }
+                        { loadChildren: '../pages/transport/transport.module#TransportPageModule', name: 'TransportPage', segment: 'transport', priority: 'low', defaultHistory: [] },
+                        { loadChildren: '../pages/signup/signup.module#SignupPageModule', name: 'SignupPage', segment: 'signup', priority: 'low', defaultHistory: [] }
                     ]
                 })
             ],
@@ -987,8 +987,8 @@ var MyApp = /** @class */ (function () {
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return HomePage; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__add_shop_add_shop__ = __webpack_require__(106);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__providers_auth_service_auth_service__ = __webpack_require__(13);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__cart_cart__ = __webpack_require__(43);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__login_login__ = __webpack_require__(44);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__cart_cart__ = __webpack_require__(44);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__login_login__ = __webpack_require__(35);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__menu_menu__ = __webpack_require__(109);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_6_ionic_angular__ = __webpack_require__(11);
@@ -1043,7 +1043,7 @@ var HomePage = /** @class */ (function () {
     };
     HomePage = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_5__angular_core__["m" /* Component */])({
-            selector: 'page-home',template:/*ion-inline-start:"/Users/chalermchai/Documents/ionic/Delifood/delifood/src/pages/home/home.html"*/'<ion-header>\n    <ion-navbar color="danger">\n        <ion-title>\n            Food deli\n        </ion-title>\n\n        <button ion-button clear *ngIf="authService.login_status==true" class="icon" (click)="goCartPage()">\n      <ion-icon name="cart"></ion-icon>\n    </button>\n\n        <ion-buttons end>\n            <button ion-button (click)="goLoginPage()">\n        <ion-icon name="contact" style="font-size:30px"></ion-icon>\n      </button>\n        </ion-buttons>\n\n    </ion-navbar>\n</ion-header>\n\n<ion-content padding>\n\n    <button ion-button outline block color="danger" (click)="goorderlistPage()">OrderPage</button>\n\n    <ion-item *ngFor="let d of data" (click)="goMenuPage(d.shop_id)">\n        <ion-thumbnail item-start>\n            <img src="{{d.picture}}">\n        </ion-thumbnail>\n        <h2>ร้าน{{d.name}}</h2>\n        รหัสร้าน {{d.shop_id}}\n    </ion-item>\n\n\n\n    <ion-fab right bottom *ngIf="authService.login_status==true" (click)="goaddshopPage()">\n        <button ion-fab class="fabcon">\n      <ion-icon name="add" style="font-size:40px "></ion-icon>\n    </button>\n    </ion-fab>\n\n\n\n</ion-content>'/*ion-inline-end:"/Users/chalermchai/Documents/ionic/Delifood/delifood/src/pages/home/home.html"*/
+            selector: 'page-home',template:/*ion-inline-start:"/Users/chalermchai/Documents/ionic/Delifood/delifood/src/pages/home/home.html"*/'<ion-header>\n    <ion-navbar color="danger">\n        <ion-title text-center>\n            Food deli\n        </ion-title>\n\n        <button ion-button clear *ngIf="authService.login_status==true" class="icon" (click)="goCartPage()">\n      <ion-icon name="cart"></ion-icon>\n    </button>\n\n        <ion-buttons end>\n            <button ion-button (click)="goLoginPage()">\n        <ion-icon name="log-in" style="font-size:30px"></ion-icon>\n      </button>\n        </ion-buttons>\n\n    </ion-navbar>\n</ion-header>\n\n<ion-content class="content">\n    <div class="bg-image"></div>\n    <button *ngIf="authService.login_status==true" ion-button outline block color="danger" (click)="goorderlistPage()">OrderPage</button>\n    <!-- \n    <ion-item *ngFor="let d of data" (click)="goMenuPage(d.shop_id)">\n        <ion-thumbnail item-start>\n            <img src="{{d.picture}}">\n        </ion-thumbnail>\n        <h2>ร้าน{{d.name}}</h2>\n        รหัสร้าน {{d.shop_id}}\n    </ion-item> -->\n\n\n    <div *ngFor="let d of data" (click)="goMenuPage(d.shop_id)">\n        <div class="shop-name">\n            <h2>ร้าน{{d.name}}</h2>\n            <p class="about-shop">ฝากท้องได้ทุกเย็นที่ร้าน “นายดำ” ร้านบะหมี่เกี๊ยวที่เปิดมาแล้วกว่า 32 ปี ทั้งบะหมี่เกี๊ยวและข้าวหมูแดงหมูกรอบ พร้อมเมนูใหม่ก๋วยเตี๋ยวเรือ!</p>\n        </div>\n        <div class="shop-img">\n\n            <img src="{{d.picture}}">\n        </div>\n\n    </div>\n\n    <ion-fab right bottom *ngIf="authService.login_status==true" (click)="goaddshopPage()">\n        <button ion-fab class="fabcon">\n      <ion-icon name="add" style="font-size:40px "></ion-icon>\n    </button>\n    </ion-fab>\n\n\n\n</ion-content>'/*ion-inline-end:"/Users/chalermchai/Documents/ionic/Delifood/delifood/src/pages/home/home.html"*/
         }),
         __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_6_ionic_angular__["f" /* NavController */], __WEBPACK_IMPORTED_MODULE_1__providers_auth_service_auth_service__["a" /* AuthService */]])
     ], HomePage);
@@ -1054,7 +1054,98 @@ var HomePage = /** @class */ (function () {
 
 /***/ }),
 
-/***/ 43:
+/***/ 35:
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return LoginPage; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__providers_auth_service_auth_service__ = __webpack_require__(13);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__home_home__ = __webpack_require__(34);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__signup_signup__ = __webpack_require__(108);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__angular_core__ = __webpack_require__(0);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_ionic_angular__ = __webpack_require__(11);
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+
+
+
+
+/**
+ * Generated class for the LoginPage page.
+ *
+ * See https://ionicframework.com/docs/components/#navigation for more info on
+ * Ionic pages and navigation.
+ */
+var LoginPage = /** @class */ (function () {
+    function LoginPage(navCtrl, navParams, authService, alertCtrl) {
+        this.navCtrl = navCtrl;
+        this.navParams = navParams;
+        this.authService = authService;
+        this.alertCtrl = alertCtrl;
+        this.check = {
+            username: "d",
+            password: "d"
+        };
+    }
+    LoginPage.prototype.alert = function () {
+        var alert = this.alertCtrl.create({
+            title: 'แจ้งเตือน',
+            message: 'กรุณากรอก Username , password',
+            buttons: ['ok']
+        });
+        alert.present();
+    };
+    LoginPage.prototype.goSignupPage = function () {
+        // this.navCtrl.push(SignupPage);
+        this.navCtrl.push(__WEBPACK_IMPORTED_MODULE_2__signup_signup__["a" /* SignupPage */]);
+    };
+    LoginPage.prototype.login = function () {
+        var _this = this;
+        this.authService.postData(this.check, 'loginCheck').then(function (result) {
+            _this.responseData = result;
+            _this.data = _this.responseData.data;
+            console.log(_this.data);
+            if (_this.data.length != 0) {
+                _this.navCtrl.push(__WEBPACK_IMPORTED_MODULE_1__home_home__["a" /* HomePage */]);
+                _this.authService.login_status = true;
+                console.log(_this.authService.login_status);
+            }
+            else {
+                var alert_1 = _this.alertCtrl.create({
+                    title: 'Login Fail',
+                    subTitle: 'Please check your username or password',
+                    buttons: ['OK']
+                });
+                alert_1.present();
+            }
+        }, function (err) {
+        });
+    };
+    LoginPage.prototype.gohomePage = function () {
+        this.navCtrl.setRoot(__WEBPACK_IMPORTED_MODULE_1__home_home__["a" /* HomePage */]);
+    };
+    LoginPage = __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_3__angular_core__["m" /* Component */])({
+            selector: 'page-login',template:/*ion-inline-start:"/Users/chalermchai/Documents/ionic/Delifood/delifood/src/pages/login/login.html"*/'<!--\n  Generated template for the LoginPage page.\n\n  See http://ionicframework.com/docs/components/#navigation for more info on\n  Ionic pages and navigation.\n-->\n<ion-header>\n    <ion-navbar color="danger">\n        <ion-title text-center>Log In</ion-title>\n        <ion-buttons end>\n            <button ion-button clear class="icon" (click)="gohomePage()">\n                <ion-icon name="home"></ion-icon>\n            </button>\n        </ion-buttons>\n    </ion-navbar>\n</ion-header>\n\n<ion-content text-center>\n    <div class="content">\n\n        <!-- <img src="https://freelogo-assets.s3.amazonaws.com/sites/all/themes/freelogoservices/images/smalllogorestaurant1.jpg" alt="">\n        <ion-item>\n            <ion-label>Username</ion-label>\n            <ion-input type="text" [(ngModel)]="check.username"></ion-input>\n        </ion-item>\n\n        <ion-item>\n            <ion-label>Password</ion-label>\n            <ion-input type="password" [(ngModel)]="check.password"></ion-input>\n\n\n        </ion-item>\n        <div padding text-center>\n            <button ion-button (click)="goSignupPage()" color="dark">Sign Up</button>\n            <button ion-button (click)="login()" color="dark">Log In</button>\n        </div> -->\n\n    </div>\n</ion-content>'/*ion-inline-end:"/Users/chalermchai/Documents/ionic/Delifood/delifood/src/pages/login/login.html"*/,
+        }),
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_4_ionic_angular__["f" /* NavController */], __WEBPACK_IMPORTED_MODULE_4_ionic_angular__["g" /* NavParams */], __WEBPACK_IMPORTED_MODULE_0__providers_auth_service_auth_service__["a" /* AuthService */], __WEBPACK_IMPORTED_MODULE_4_ionic_angular__["a" /* AlertController */]])
+    ], LoginPage);
+    return LoginPage;
+}());
+
+//# sourceMappingURL=login.js.map
+
+/***/ }),
+
+/***/ 44:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -1180,97 +1271,6 @@ var CartPage = /** @class */ (function () {
 }());
 
 //# sourceMappingURL=cart.js.map
-
-/***/ }),
-
-/***/ 44:
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return LoginPage; });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__providers_auth_service_auth_service__ = __webpack_require__(13);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__home_home__ = __webpack_require__(34);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__signup_signup__ = __webpack_require__(108);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_ionic_angular__ = __webpack_require__(11);
-var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
-    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
-    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
-    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
-    return c > 3 && r && Object.defineProperty(target, key, r), r;
-};
-var __metadata = (this && this.__metadata) || function (k, v) {
-    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
-};
-
-
-
-
-
-/**
- * Generated class for the LoginPage page.
- *
- * See https://ionicframework.com/docs/components/#navigation for more info on
- * Ionic pages and navigation.
- */
-var LoginPage = /** @class */ (function () {
-    function LoginPage(navCtrl, navParams, authService, alertCtrl) {
-        this.navCtrl = navCtrl;
-        this.navParams = navParams;
-        this.authService = authService;
-        this.alertCtrl = alertCtrl;
-        this.check = {
-            username: "d",
-            password: "d"
-        };
-    }
-    LoginPage.prototype.alert = function () {
-        var alert = this.alertCtrl.create({
-            title: 'แจ้งเตือน',
-            message: 'กรุณากรอก Username , password',
-            buttons: ['ok']
-        });
-        alert.present();
-    };
-    LoginPage.prototype.goSignupPage = function () {
-        // this.navCtrl.push(SignupPage);
-        this.navCtrl.push(__WEBPACK_IMPORTED_MODULE_2__signup_signup__["a" /* SignupPage */]);
-    };
-    LoginPage.prototype.login = function () {
-        var _this = this;
-        this.authService.postData(this.check, 'loginCheck').then(function (result) {
-            _this.responseData = result;
-            _this.data = _this.responseData.data;
-            console.log(_this.data);
-            if (_this.data.length != 0) {
-                _this.navCtrl.push(__WEBPACK_IMPORTED_MODULE_1__home_home__["a" /* HomePage */]);
-                _this.authService.login_status = true;
-                console.log(_this.authService.login_status);
-            }
-            else {
-                var alert_1 = _this.alertCtrl.create({
-                    title: 'Login Fail',
-                    subTitle: 'Please check your username or password',
-                    buttons: ['OK']
-                });
-                alert_1.present();
-            }
-        }, function (err) {
-        });
-    };
-    LoginPage.prototype.gohomePage = function () {
-        this.navCtrl.setRoot(__WEBPACK_IMPORTED_MODULE_1__home_home__["a" /* HomePage */]);
-    };
-    LoginPage = __decorate([
-        Object(__WEBPACK_IMPORTED_MODULE_3__angular_core__["m" /* Component */])({
-            selector: 'page-login',template:/*ion-inline-start:"/Users/chalermchai/Documents/ionic/Delifood/delifood/src/pages/login/login.html"*/'<!--\n  Generated template for the LoginPage page.\n\n  See http://ionicframework.com/docs/components/#navigation for more info on\n  Ionic pages and navigation.\n-->\n<ion-header>\n    <ion-navbar color="danger">\n        <ion-title>Log In</ion-title>\n        <button ion-button clear class="icon" (click)="gohomePage()">\n      <ion-icon name="home"></ion-icon>\n    </button>\n    </ion-navbar>\n</ion-header>\n\n<ion-content padding text-center>\n    <img src="https://freelogo-assets.s3.amazonaws.com/sites/all/themes/freelogoservices/images/smalllogorestaurant1.jpg" alt="">\n    <ion-item>\n        <ion-label>Username</ion-label>\n        <ion-input type="text" [(ngModel)]="check.username"></ion-input>\n    </ion-item>\n\n    <ion-item>\n        <ion-label>Password</ion-label>\n        <ion-input type="password" [(ngModel)]="check.password"></ion-input>\n\n\n    </ion-item>\n    <div padding text-center>\n        <button ion-button (click)="goSignupPage()" color="dark">Sign Up</button>\n        <button ion-button (click)="login()" color="dark">Log In</button>\n    </div>\n\n</ion-content>'/*ion-inline-end:"/Users/chalermchai/Documents/ionic/Delifood/delifood/src/pages/login/login.html"*/,
-        }),
-        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_4_ionic_angular__["f" /* NavController */], __WEBPACK_IMPORTED_MODULE_4_ionic_angular__["g" /* NavParams */], __WEBPACK_IMPORTED_MODULE_0__providers_auth_service_auth_service__["a" /* AuthService */], __WEBPACK_IMPORTED_MODULE_4_ionic_angular__["a" /* AlertController */]])
-    ], LoginPage);
-    return LoginPage;
-}());
-
-//# sourceMappingURL=login.js.map
 
 /***/ })
 
