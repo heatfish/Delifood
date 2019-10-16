@@ -51516,9 +51516,51 @@ page-home .about-shop {
   position: center;
 }
 
+page-home .order-btn {
+  margin: 20px;
+}
+
+page-home ion-buttons {
+  margin-right: 10px;
+}
+
 page-login .content {
-  background-image: src("../../assets/imgs/foodiesfeed.com_green-salad-with-bread.jpg");
+  background-image: src("../../assets/imgs/foodiesfeed.com_green-salad-with-bread (2).jpg");
   background-color: black;
+  margin-top: 70px;
+}
+
+page-login .username-input,
+page-login .password-input {
+  background-color: white;
+  text-align: center;
+  margin: 30px;
+}
+
+page-login .or-label {
+  font-size: 18px;
+}
+
+page-login .login-lebel {
+  color: white;
+  font-size: 24px;
+}
+
+page-menu ion-slides {
+  height: 40%;
+}
+
+page-menu .img-slide {
+  margin-bottom: 20px;
+  background-color: black;
+}
+
+page-menu .shop-name-label {
+  padding-left: 20px;
+  font-size: 28px;
+  color: red;
+  border-bottom: 1px red;
+  font-weight: bold;
 }
 
 .right {

@@ -1,6 +1,20 @@
 page-login {
     .content {
-        background-image: src("../../assets/imgs/foodiesfeed.com_green-salad-with-bread.jpg");
+        background-image: src("../../assets/imgs/foodiesfeed.com_green-salad-with-bread (2).jpg");
         background-color: black;
+        margin-top: 70px;
+    }
+    .username-input,
+    .password-input {
+        background-color: white;
+        text-align: center;
+        margin: 30px;
+    }
+    .or-label {
+        font-size: 18px;
+    }
+    .login-lebel {
+        color: white;
+        font-size: 24px;
     }
 }

@@ -1,3 +1,17 @@
 page-menu {
-
+    ion-slides {
+        height: 40%;
+    }
+    .img-slide {
+        margin-bottom: 20px;
+        background-color: black;
+        // padding-bottom: 5px;
+    }
+    .shop-name-label {
+        padding-left: 20px;
+        font-size: 28px;
+        color: red;
+        border-bottom: 1px red;
+        font-weight: bold;
+    }
 }

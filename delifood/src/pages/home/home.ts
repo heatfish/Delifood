@@ -25,9 +25,9 @@ export class HomePage {
   constructor(public navCtrl: NavController,public authService: AuthService) {
 this.getshop();
   }
-  goMenuPage(shop_id:string){
+  goMenuPage(shop_id:string,name:string){
    
-     this.navCtrl.push(MenuPage,{shop_id:shop_id});
+     this.navCtrl.push(MenuPage,{shop_id:shop_id,name:name});
   }
 
   goLoginPage(){

@@ -51,7 +51,7 @@ export class LoginPage {
     this.navCtrl.push(SignupPage);
   }
   login() {
-    this.authService.postData(this.check, 'loginCheck').then((result) => {
+    this.authService.postData(this.check, 'check_login').then((result) => {
       this.responseData = result;
       this.data = this.responseData.data;
       console.log(this.data);
