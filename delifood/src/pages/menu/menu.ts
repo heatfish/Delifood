@@ -16,6 +16,7 @@ export class MenuPage {
   responseData: any;
   data: any;
   shop_id: any;
+  shop_name:string;
   datas = {
     item_id: "",
     price: "",
@@ -24,6 +25,7 @@ export class MenuPage {
   };
   constructor(public alertCtrl: AlertController, public navCtrl: NavController, public authService: AuthService, public navParams: NavParams) {
     this.shop_id = this.navParams.get('shop_id');
+    this.shop_name=this.navParams.get('name');
     console.log("รหัสร้าน" + this.shop_id);
     this.getFood();
 

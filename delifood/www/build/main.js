@@ -296,6 +296,7 @@ var MenuPage = /** @class */ (function () {
             name: ""
         };
         this.shop_id = this.navParams.get('shop_id');
+        this.shop_name = this.navParams.get('name');
         console.log("รหัสร้าน" + this.shop_id);
         this.getFood();
     }
@@ -355,7 +356,7 @@ var MenuPage = /** @class */ (function () {
     };
     MenuPage = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_3__angular_core__["m" /* Component */])({
-            selector: 'page-menu',template:/*ion-inline-start:"/Users/chalermchai/Documents/ionic/Delifood/delifood/src/pages/menu/menu.html"*/'<!--\n  Generated template for the MenuPage page.\n\n  See http://ionicframework.com/docs/components/#navigation for more info on\n  Ionic pages and navigation.\n-->\n<ion-header>\n  <ion-navbar color="danger">\n    <ion-title>menu</ion-title>\n  </ion-navbar>\n</ion-header>\n\n<ion-content padding>\n  <img\n    src="https://marketplace.canva.com/MAC5oKacMGY/1/0/thumbnail_large-5/canva-black-with-utensils-icon-restaurant-logo-MAC5oKacMGY.jpg"\n    alt="">\n\n\n  <ion-item *ngFor="let d of data" (click)="addtoCart(d.name,d.item_id,d.price,d.picture)">\n    <ion-thumbnail item-start>\n      <img src="{{d.picture}}">\n    </ion-thumbnail>\n    <h2>{{d.name}}</h2>\n    <p>{{d.price}}บาท</p>\n  </ion-item>\n\n\n  <ion-fab right (click)="goadditemPage(shop_id)" >\n    <button ion-fab class="fabcon" display="hidden">\n      <ion-icon name="add"style="font-size:40px "></ion-icon>\n    </button>\n  </ion-fab>\n\n  <ion-fab right bottom (click)="goCartPage()">\n    <button ion-fab color="dark">\n      <ion-icon name="cart"></ion-icon>\n    </button>\n  </ion-fab>\n\n</ion-content>'/*ion-inline-end:"/Users/chalermchai/Documents/ionic/Delifood/delifood/src/pages/menu/menu.html"*/,
+            selector: 'page-menu',template:/*ion-inline-start:"/Users/chalermchai/Documents/ionic/Delifood/delifood/src/pages/menu/menu.html"*/'<!--\n  Generated template for the MenuPage page.\n\n  See http://ionicframework.com/docs/components/#navigation for more info on\n  Ionic pages and navigation.\n-->\n<ion-header>\n    <ion-navbar color="danger">\n        <ion-title>menu</ion-title>\n    </ion-navbar>\n</ion-header>\n\n<ion-content>\n\n    <div class="img-slide">\n        <ion-slides pager>\n            <ion-slide *ngFor="let d of data">\n                <!-- <h2>Slide 1</h2> -->\n                <img src="{{d.picture}}" alt="">\n            </ion-slide>\n        </ion-slides>\n    </div>\n    <div class="shop-name-label">\n        <ion-label>\n            ร้าน{{shop_name}}\n        </ion-label>\n    </div>\n    <ion-item *ngFor="let d of data" (click)="addtoCart(d.name,d.item_id,d.price,d.picture)">\n        <ion-thumbnail item-start>\n            <img src="{{d.picture}}">\n        </ion-thumbnail>\n        <h2>{{d.name}}</h2>\n        <p>{{d.price}}บาท</p>\n    </ion-item>\n\n\n    <ion-fab right (click)="goadditemPage(shop_id)">\n        <button ion-fab class="fabcon" display="hidden">\n      <ion-icon name="add"style="font-size:40px "></ion-icon>\n    </button>\n    </ion-fab>\n\n    <ion-fab right bottom (click)="goCartPage()">\n        <button ion-fab color="dark">\n      <ion-icon name="cart"></ion-icon>\n    </button>\n    </ion-fab>\n\n</ion-content>'/*ion-inline-end:"/Users/chalermchai/Documents/ionic/Delifood/delifood/src/pages/menu/menu.html"*/,
         }),
         __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_4_ionic_angular__["a" /* AlertController */], __WEBPACK_IMPORTED_MODULE_4_ionic_angular__["f" /* NavController */], __WEBPACK_IMPORTED_MODULE_1__providers_auth_service_auth_service__["a" /* AuthService */], __WEBPACK_IMPORTED_MODULE_4_ionic_angular__["g" /* NavParams */]])
     ], MenuPage);
@@ -639,7 +640,7 @@ var map = {
 		7
 	],
 	"../pages/cart/cart.module": [
-		294,
+		292,
 		6
 	],
 	"../pages/detail-order/detail-order.module": [
@@ -647,19 +648,19 @@ var map = {
 		5
 	],
 	"../pages/login/login.module": [
-		292,
+		298,
 		4
 	],
 	"../pages/menu/menu.module": [
-		295,
+		294,
 		3
 	],
 	"../pages/order-list/order-list.module": [
-		296,
+		295,
 		2
 	],
 	"../pages/signup/signup.module": [
-		298,
+		296,
 		1
 	],
 	"../pages/transport/transport.module": [
@@ -892,13 +893,13 @@ var AppModule = /** @class */ (function () {
                         { loadChildren: '../pages/account/account.module#AccountPageModule', name: 'AccountPage', segment: 'account', priority: 'low', defaultHistory: [] },
                         { loadChildren: '../pages/add-item/add-item.module#AddItemPageModule', name: 'AddItemPage', segment: 'add-item', priority: 'low', defaultHistory: [] },
                         { loadChildren: '../pages/add-shop/add-shop.module#AddShopPageModule', name: 'AddShopPage', segment: 'add-shop', priority: 'low', defaultHistory: [] },
-                        { loadChildren: '../pages/login/login.module#LoginPageModule', name: 'LoginPage', segment: 'login', priority: 'low', defaultHistory: [] },
-                        { loadChildren: '../pages/detail-order/detail-order.module#DetailOrderPageModule', name: 'DetailOrderPage', segment: 'detail-order', priority: 'low', defaultHistory: [] },
                         { loadChildren: '../pages/cart/cart.module#CartPageModule', name: 'CartPage', segment: 'cart', priority: 'low', defaultHistory: [] },
+                        { loadChildren: '../pages/detail-order/detail-order.module#DetailOrderPageModule', name: 'DetailOrderPage', segment: 'detail-order', priority: 'low', defaultHistory: [] },
                         { loadChildren: '../pages/menu/menu.module#MenuPageModule', name: 'MenuPage', segment: 'menu', priority: 'low', defaultHistory: [] },
                         { loadChildren: '../pages/order-list/order-list.module#OrderListPageModule', name: 'OrderListPage', segment: 'order-list', priority: 'low', defaultHistory: [] },
+                        { loadChildren: '../pages/signup/signup.module#SignupPageModule', name: 'SignupPage', segment: 'signup', priority: 'low', defaultHistory: [] },
                         { loadChildren: '../pages/transport/transport.module#TransportPageModule', name: 'TransportPage', segment: 'transport', priority: 'low', defaultHistory: [] },
-                        { loadChildren: '../pages/signup/signup.module#SignupPageModule', name: 'SignupPage', segment: 'signup', priority: 'low', defaultHistory: [] }
+                        { loadChildren: '../pages/login/login.module#LoginPageModule', name: 'LoginPage', segment: 'login', priority: 'low', defaultHistory: [] }
                     ]
                 })
             ],
@@ -1016,8 +1017,8 @@ var HomePage = /** @class */ (function () {
         this.authService = authService;
         this.getshop();
     }
-    HomePage.prototype.goMenuPage = function (shop_id) {
-        this.navCtrl.push(__WEBPACK_IMPORTED_MODULE_4__menu_menu__["a" /* MenuPage */], { shop_id: shop_id });
+    HomePage.prototype.goMenuPage = function (shop_id, name) {
+        this.navCtrl.push(__WEBPACK_IMPORTED_MODULE_4__menu_menu__["a" /* MenuPage */], { shop_id: shop_id, name: name });
     };
     HomePage.prototype.goLoginPage = function () {
         this.navCtrl.push(__WEBPACK_IMPORTED_MODULE_3__login_login__["a" /* LoginPage */]);
@@ -1043,7 +1044,7 @@ var HomePage = /** @class */ (function () {
     };
     HomePage = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_5__angular_core__["m" /* Component */])({
-            selector: 'page-home',template:/*ion-inline-start:"/Users/chalermchai/Documents/ionic/Delifood/delifood/src/pages/home/home.html"*/'<ion-header>\n    <ion-navbar color="danger">\n        <ion-title text-center>\n            Food deli\n        </ion-title>\n\n        <button ion-button clear *ngIf="authService.login_status==true" class="icon" (click)="goCartPage()">\n      <ion-icon name="cart"></ion-icon>\n    </button>\n\n        <ion-buttons end>\n            <button ion-button (click)="goLoginPage()">\n        <ion-icon name="log-in" style="font-size:30px"></ion-icon>\n      </button>\n        </ion-buttons>\n\n    </ion-navbar>\n</ion-header>\n\n<ion-content class="content">\n    <div class="bg-image"></div>\n    <button *ngIf="authService.login_status==true" ion-button outline block color="danger" (click)="goorderlistPage()">OrderPage</button>\n    <!-- \n    <ion-item *ngFor="let d of data" (click)="goMenuPage(d.shop_id)">\n        <ion-thumbnail item-start>\n            <img src="{{d.picture}}">\n        </ion-thumbnail>\n        <h2>ร้าน{{d.name}}</h2>\n        รหัสร้าน {{d.shop_id}}\n    </ion-item> -->\n\n\n    <div *ngFor="let d of data" (click)="goMenuPage(d.shop_id)">\n        <div class="shop-name">\n            <h2>ร้าน{{d.name}}</h2>\n            <p class="about-shop">ฝากท้องได้ทุกเย็นที่ร้าน “นายดำ” ร้านบะหมี่เกี๊ยวที่เปิดมาแล้วกว่า 32 ปี ทั้งบะหมี่เกี๊ยวและข้าวหมูแดงหมูกรอบ พร้อมเมนูใหม่ก๋วยเตี๋ยวเรือ!</p>\n        </div>\n        <div class="shop-img">\n\n            <img src="{{d.picture}}">\n        </div>\n\n    </div>\n\n    <ion-fab right bottom *ngIf="authService.login_status==true" (click)="goaddshopPage()">\n        <button ion-fab class="fabcon">\n      <ion-icon name="add" style="font-size:40px "></ion-icon>\n    </button>\n    </ion-fab>\n\n\n\n</ion-content>'/*ion-inline-end:"/Users/chalermchai/Documents/ionic/Delifood/delifood/src/pages/home/home.html"*/
+            selector: 'page-home',template:/*ion-inline-start:"/Users/chalermchai/Documents/ionic/Delifood/delifood/src/pages/home/home.html"*/'<ion-header>\n    <ion-navbar color="danger">\n        <ion-title text-center>\n            Food deli\n        </ion-title>\n        <ion-buttons end>\n            <button ion-button clear *ngIf="authService.login_status==true" class="icon" (click)="goCartPage()"><ion-icon name="cart"></ion-icon> </button>\n            <button ion-button *ngIf="authService.login_status==false" (click)="goLoginPage()"><ion-icon name="log-in" style="font-size:30px"></ion-icon></button>\n\n        </ion-buttons>\n\n    </ion-navbar>\n</ion-header>\n\n<ion-content class="content">\n    <div class="bg-image"></div>\n    <div class="order-btn">\n        <button *ngIf="authService.login_status==true" ion-button outline block color="danger" (click)="goorderlistPage()">OrderPage</button>\n    </div>\n    <!-- \n    <ion-item *ngFor="let d of data" (click)="goMenuPage(d.shop_id)">\n        <ion-thumbnail item-start>\n            <img src="{{d.picture}}">\n        </ion-thumbnail>\n        <h2>ร้าน{{d.name}}</h2>\n        รหัสร้าน {{d.shop_id}}\n    </ion-item> -->\n\n\n    <div *ngFor="let d of data" (click)="goMenuPage(d.shop_id,d.name)">\n        <div class="shop-name">\n            <h2>ร้าน{{d.name}}</h2>\n            <p class="about-shop">ฝากท้องได้ทุกเย็นที่ร้าน “นายดำ” ร้านบะหมี่เกี๊ยวที่เปิดมาแล้วกว่า 32 ปี ทั้งบะหมี่เกี๊ยวและข้าวหมูแดงหมูกรอบ พร้อมเมนูใหม่ก๋วยเตี๋ยวเรือ!</p>\n        </div>\n        <div class="shop-img">\n\n            <img src="{{d.picture}}">\n        </div>\n\n    </div>\n\n    <ion-fab right bottom *ngIf="authService.login_status==true" (click)="goaddshopPage()">\n        <button ion-fab class="fabcon">\n      <ion-icon name="add" style="font-size:40px "></ion-icon>\n    </button>\n    </ion-fab>\n\n\n\n</ion-content>'/*ion-inline-end:"/Users/chalermchai/Documents/ionic/Delifood/delifood/src/pages/home/home.html"*/
         }),
         __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_6_ionic_angular__["f" /* NavController */], __WEBPACK_IMPORTED_MODULE_1__providers_auth_service_auth_service__["a" /* AuthService */]])
     ], HomePage);
@@ -1109,7 +1110,7 @@ var LoginPage = /** @class */ (function () {
     };
     LoginPage.prototype.login = function () {
         var _this = this;
-        this.authService.postData(this.check, 'loginCheck').then(function (result) {
+        this.authService.postData(this.check, 'check_login').then(function (result) {
             _this.responseData = result;
             _this.data = _this.responseData.data;
             console.log(_this.data);
@@ -1134,7 +1135,7 @@ var LoginPage = /** @class */ (function () {
     };
     LoginPage = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_3__angular_core__["m" /* Component */])({
-            selector: 'page-login',template:/*ion-inline-start:"/Users/chalermchai/Documents/ionic/Delifood/delifood/src/pages/login/login.html"*/'<!--\n  Generated template for the LoginPage page.\n\n  See http://ionicframework.com/docs/components/#navigation for more info on\n  Ionic pages and navigation.\n-->\n<ion-header>\n    <ion-navbar color="danger">\n        <ion-title text-center>Log In</ion-title>\n        <ion-buttons end>\n            <button ion-button clear class="icon" (click)="gohomePage()">\n                <ion-icon name="home"></ion-icon>\n            </button>\n        </ion-buttons>\n    </ion-navbar>\n</ion-header>\n\n<ion-content text-center>\n    <div class="content">\n\n        <!-- <img src="https://freelogo-assets.s3.amazonaws.com/sites/all/themes/freelogoservices/images/smalllogorestaurant1.jpg" alt="">\n        <ion-item>\n            <ion-label>Username</ion-label>\n            <ion-input type="text" [(ngModel)]="check.username"></ion-input>\n        </ion-item>\n\n        <ion-item>\n            <ion-label>Password</ion-label>\n            <ion-input type="password" [(ngModel)]="check.password"></ion-input>\n\n\n        </ion-item>\n        <div padding text-center>\n            <button ion-button (click)="goSignupPage()" color="dark">Sign Up</button>\n            <button ion-button (click)="login()" color="dark">Log In</button>\n        </div> -->\n\n    </div>\n</ion-content>'/*ion-inline-end:"/Users/chalermchai/Documents/ionic/Delifood/delifood/src/pages/login/login.html"*/,
+            selector: 'page-login',template:/*ion-inline-start:"/Users/chalermchai/Documents/ionic/Delifood/delifood/src/pages/login/login.html"*/'<!--\n  Generated template for the LoginPage page.\n\n  See http://ionicframework.com/docs/components/#navigation for more info on\n  Ionic pages and navigation.\n-->\n<ion-header>\n    <ion-navbar color="danger">\n        <ion-title text-center>Log In</ion-title>\n        <ion-buttons end>\n            <button ion-button clear class="icon" (click)="gohomePage()">\n                <ion-icon name="home"></ion-icon>\n            </button>\n        </ion-buttons>\n    </ion-navbar>\n</ion-header>\n\n<ion-content text-center>\n    <div class="content">\n        <div class="login-lebel">\n            <ion-label>LOGIN</ion-label>\n        </div>\n        <div class="username-input">\n            <ion-item>\n                <ion-label>Username</ion-label>\n                <ion-input type="text" [(ngModel)]="check.username"></ion-input>\n            </ion-item>\n        </div>\n        <div class="password-input">\n            <ion-item>\n\n                <ion-label>Password</ion-label>\n                <ion-input type="password" [(ngModel)]="check.password"></ion-input>\n            </ion-item>\n        </div>\n\n\n        <div padding text-center>\n            <div>\n\n                <button ion-button full (click)="login()" color="dark">Log In</button>\n            </div>\n\n            <div class="or-label">\n                <ion-label color="light"> or </ion-label>\n            </div>\n            <div>\n\n                <button ion-button full (click)="goSignupPage()" color="dark">Sign Up</button>\n            </div>\n\n        </div>\n\n    </div>\n</ion-content>'/*ion-inline-end:"/Users/chalermchai/Documents/ionic/Delifood/delifood/src/pages/login/login.html"*/,
         }),
         __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_4_ionic_angular__["f" /* NavController */], __WEBPACK_IMPORTED_MODULE_4_ionic_angular__["g" /* NavParams */], __WEBPACK_IMPORTED_MODULE_0__providers_auth_service_auth_service__["a" /* AuthService */], __WEBPACK_IMPORTED_MODULE_4_ionic_angular__["a" /* AlertController */]])
     ], LoginPage);

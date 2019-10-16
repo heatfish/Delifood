@@ -3,15 +3,10 @@
         <ion-title text-center>
             Food deli
         </ion-title>
-
-        <button ion-button clear *ngIf="authService.login_status==true" class="icon" (click)="goCartPage()">
-      <ion-icon name="cart"></ion-icon>
-    </button>
-
         <ion-buttons end>
-            <button ion-button (click)="goLoginPage()">
-        <ion-icon name="log-in" style="font-size:30px"></ion-icon>
-      </button>
+            <button ion-button clear *ngIf="authService.login_status==true" class="icon" (click)="goCartPage()"><ion-icon name="cart"></ion-icon> </button>
+            <button ion-button *ngIf="authService.login_status==false" (click)="goLoginPage()"><ion-icon name="log-in" style="font-size:30px"></ion-icon></button>
+
         </ion-buttons>
 
     </ion-navbar>
@@ -19,7 +14,9 @@
 
 <ion-content class="content">
     <div class="bg-image"></div>
-    <button *ngIf="authService.login_status==true" ion-button outline block color="danger" (click)="goorderlistPage()">OrderPage</button>
+    <div class="order-btn">
+        <button *ngIf="authService.login_status==true" ion-button outline block color="danger" (click)="goorderlistPage()">OrderPage</button>
+    </div>
     <!-- 
     <ion-item *ngFor="let d of data" (click)="goMenuPage(d.shop_id)">
         <ion-thumbnail item-start>
@@ -30,7 +27,7 @@
     </ion-item> -->
 
 
-    <div *ngFor="let d of data" (click)="goMenuPage(d.shop_id)">
+    <div *ngFor="let d of data" (click)="goMenuPage(d.shop_id,d.name)">
         <div class="shop-name">
             <h2>ร้าน{{d.name}}</h2>
             <p class="about-shop">ฝากท้องได้ทุกเย็นที่ร้าน “นายดำ” ร้านบะหมี่เกี๊ยวที่เปิดมาแล้วกว่า 32 ปี ทั้งบะหมี่เกี๊ยวและข้าวหมูแดงหมูกรอบ พร้อมเมนูใหม่ก๋วยเตี๋ยวเรือ!</p>

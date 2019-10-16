@@ -17,23 +17,39 @@
 
 <ion-content text-center>
     <div class="content">
+        <div class="login-lebel">
+            <ion-label>LOGIN</ion-label>
+        </div>
+        <div class="username-input">
+            <ion-item>
+                <ion-label>Username</ion-label>
+                <ion-input type="text" [(ngModel)]="check.username"></ion-input>
+            </ion-item>
+        </div>
+        <div class="password-input">
+            <ion-item>
 
-        <!-- <img src="https://freelogo-assets.s3.amazonaws.com/sites/all/themes/freelogoservices/images/smalllogorestaurant1.jpg" alt="">
-        <ion-item>
-            <ion-label>Username</ion-label>
-            <ion-input type="text" [(ngModel)]="check.username"></ion-input>
-        </ion-item>
-
-        <ion-item>
-            <ion-label>Password</ion-label>
-            <ion-input type="password" [(ngModel)]="check.password"></ion-input>
+                <ion-label>Password</ion-label>
+                <ion-input type="password" [(ngModel)]="check.password"></ion-input>
+            </ion-item>
+        </div>
 
 
-        </ion-item>
         <div padding text-center>
-            <button ion-button (click)="goSignupPage()" color="dark">Sign Up</button>
-            <button ion-button (click)="login()" color="dark">Log In</button>
-        </div> -->
+            <div>
+
+                <button ion-button full (click)="login()" color="dark">Log In</button>
+            </div>
+
+            <div class="or-label">
+                <ion-label color="light"> or </ion-label>
+            </div>
+            <div>
+
+                <button ion-button full (click)="goSignupPage()" color="dark">Sign Up</button>
+            </div>
+
+        </div>
 
     </div>
 </ion-content>
