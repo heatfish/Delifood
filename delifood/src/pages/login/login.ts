@@ -5,7 +5,7 @@ import { SignupPage } from './../signup/signup';
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams, AlertController } from 'ionic-angular';
 import { empty } from 'rxjs/Observer';
-import { GooglePlus } from '@ionic-native/google-plus';
+// import { GooglePlus } from '@ionic-native/google-plus';
 import { LoginProvider } from '../../providers/login/login';
 
 /**

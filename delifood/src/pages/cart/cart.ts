@@ -1,7 +1,7 @@
 import { AuthService } from './../../providers/auth-service/auth-service';
 import { TransportPage } from './../transport/transport';
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { IonicPage, NavController, NavParams, Item } from 'ionic-angular';
 
 
 
@@ -18,11 +18,16 @@ export class CartPage {
 
   id: any = 1;
 
-  address: null;
+  address: any;
   time: null;
   landmark: null;
 
   data: any;
+
+  bb = {
+    asd: "",
+    sdf: ""
+  }
 
   aa = {
     address: "dgfdg",
@@ -33,16 +38,17 @@ export class CartPage {
     user_id: "",
     shop_id: ""
   };
+
   datas = {
     item_id: "",
     price: "hjkhjk",
     picture: "",
-    name:""
+    name: ""
   };
+
 
   constructor(public navCtrl: NavController, public navParams: NavParams, public authService: AuthService) {
     this.address = this.navParams.get('address');
-    this.aa.address=this.navParams.get('address');
     this.time = this.navParams.get('time');
     this.landmark = this.navParams.get('landmark');
     console.log("ข้อมูล" + this.address + " " + this.time + " " + this.landmark);
@@ -52,17 +58,6 @@ export class CartPage {
 
   }
 
-  gotransport() {
-    // for (let index = 0; index < this.data.length; index++) {
-    //        if(this.totalfood==){
-    //   console.log("OneMore")
-    //        }
-    //         else{
-    //   console.log("Ok")
-    //         }
-    // }
-    this.navCtrl.push(TransportPage);
-  }
   getcart() {
     this.authService.postData(this.id, "getCartById").then((result) => {
       this.responseData = result;
@@ -79,11 +74,59 @@ export class CartPage {
 
   showValue() {
     let inndex = 0;
+
+    this.sumprice = 0;
+    this.sumtotalfood = 0;
     this.totalfood.forEach(item => {
       this.sumtotalfood += Number(item);
       this.sumprice += Number(item) * Number(this.data[inndex].price)
       inndex++
     });
+
+  }
+  tabtoclear(i: string) {
+    this.totalfood[i] = "";
+  }
+
+
+
+
+  addtobilldetail(sumprice: string, sumtotalfood: string) {
+
+
+
+    // for (let index = 0; index < this.data.length; index++) {
+    // console.log("ข้อมูล" + this.address + " " + this.time + " " + this.landmark);
+
+    this.aa.address = this.address;
+    this.aa.time = this.time;
+    this.aa.landmark = this.landmark;
+    this.aa.pricesum = String(this.sumprice);
+    this.aa.totalsum = String(this.sumtotalfood);
+    this.aa.user_id = this.id
+
+    console.log(" billdetail " + this.aa.address + " " + this.aa.totalsum +" " + this.aa.pricesum + this.aa);
+
+
+    // this.authService.postData(this.billdetail, 'addCartToBill2').then((result) => {
+    //   this.responseData = result;
+    //   console.log(this.responseData)
+    //   console.log("Ok");
+    // }, (err) => {
+    //   Error
+    // });
+  }
+
+  gotransport() {
+    this.navCtrl.push(TransportPage);
+    // for (let index = 0; index < this.data.length; index++) {
+    //        if(this.totalfood==){
+    //   console.log("OneMore")
+    //        }
+    //         else{
+    //   console.log("Ok")
+    //         }
+    // }
 
   }
 
@@ -104,34 +147,9 @@ export class CartPage {
 
   // }
 
-  addtobilldetail(sumprice: string, sumtotalfood: string) {
-
-
-    // for (let index = 0; index < this.data.length; index++) {
-    // console.log("ข้อมูล" + this.address + " " + this.time + " " + this.landmark);
-
-    this.aa.address = this.address;
-    this.aa.time = this.time;
-    this.aa.landmark = this.landmark;
-    this.aa.pricesum = String(this.sumprice);
-    this.aa.totalsum = String(this.sumtotalfood);
-    this.aa.user_id = this.id
-    console.log("billdetail"+this.datas);
-
-
-    // this.authService.postData(this.billdetail, 'addCartToBill2').then((result) => {
-    //   this.responseData = result;
-    //   console.log(this.responseData)
-    //   console.log("Ok");
-    // }, (err) => {
-    //   Error
-    // });
-    }
-  
-
   // addCartTobilldetail2() {
-    // this.authService.postData(this.billdetail, 'addCartTobilldetail').then((result) => {
-    //     this.responseData = result;
+  // this.authService.postData(this.billdetail, 'addCartTobilldetail').then((result) => {
+  //     this.responseData = result;
 
   // }
 

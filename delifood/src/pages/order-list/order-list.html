@@ -1,11 +1,11 @@
 <ion-header>
   <ion-navbar color="danger">
-    <ion-title >
+    <ion-title>
       order-list
-   </ion-title>
+    </ion-title>
     <button ion-button clear class="icon" (click)="gohomePage()">
-        <ion-icon name="home"></ion-icon>
-      </button>
+      <ion-icon name="home"></ion-icon>
+    </button>
   </ion-navbar>
 </ion-header>
 
@@ -14,20 +14,32 @@
 {{n}}
   </ion-item> -->
 
-<ion-card *ngFor="let n of shop_name; let i = index;">
-<ion-item>
+  <!-- {{shop_all[0].name}} -->
+  <ion-card *ngFor=" let d of shop_all;let i = index" >
+    <ion-grid >
+      <ion-row >
 
-<ion-thumbnail item-start>
-<img src="">
-</ion-thumbnail>  
+        <ion-col col-4>
+          <ion-thumbnail>
+            <img src="{{d[0].picture}}" style="height: 80px;width: auto;">
+          </ion-thumbnail>
+        </ion-col>
+        <ion-col col-5 class="order">
+          <b class="left" style="font-size:16px ;">ร้าน {{d[0].name}}<br>
+            <button ion-button outline (click)="gettest()"small>รายละเอียด</button></b><br>
+        </ion-col>
+        <ion-col col-3 class="order">
+          <p class="right" >
+          <label>รวม <a>{{data[i].totalsum}}</a> ชิ้น</label><br>
+          <label>ราคา <a>{{data[i].pricesum}}</a> บาท</label>
+          </p>
+        </ion-col>
 
-<b class="left">ร้าน {{n}}<br><button ion-button  outline (click)="shopinfo(shop_id[i])">รายละเอียด</button></b><br>
+      </ion-row>
+    </ion-grid>
+  </ion-card>
 
 
-<a class="right">รวม 0 ชิ้น<br>ราคา บาท</a>
-
-</ion-item>
-</ion-card>
 
 
 </ion-content>

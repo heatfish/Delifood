@@ -14,81 +14,70 @@ export class OrderListPage {
   responseData: any;
   data: any;
   shop: any;
-  shop_name = []
+  shop_all=[];
+  shop_name = [];
+  datax= [];
+  
+  food_on_workink=[];
 
-  id: any = 1;
+  lem: any;
+  work:"working";
+
+  id: string = "1";
   datas = {
     item_id: "",
     price: "",
     picture: "",
     name: ""
 
-
+    
   };
   shop_id = [];
   push_shopid: boolean = true;
-  constructor(public navCtrl: NavController, public navParams: NavParams, public authService: AuthService, public alertCtrl: AlertController) {
-
-    this.getbill();
-    this.getnameshop();
+  constructor(public navCtrl: NavController, public navParams: NavParams,
+    public authService: AuthService, public alertCtrl: AlertController) {
+    this.getFoodStatus();
   }
 
-
-
+  getFoodStatus() {
+    console.log(this.id);
+    this.authService.postData(this.id, "getAllBillById").then((result) => {
+      this.responseData = result;
+      this.data = this.responseData.data;
+      console.log(this.data);
+      for (let i= 0; i < this.data.length; i++) {
+        if(this.data[i].status=="working"){
+          this.food_on_workink.push(this.data[i].shop_id);
+        }
+      }
+      console.log(this.data);
+      this.getshopdata(); 
+    }, (err) => {
+      console.error(err);
+    });
+    
+    // console.log(this.food_on_workink);
+    
+    
+  }
+  
+  getshopdata() {
+    for (let j = 0; j < this.food_on_workink.length; j++) {
+      this.authService.postData(this.food_on_workink[j], "getShopById ").then((result) => {
+        this.responseData = result;
+        this.shop=this.responseData.data;
+        // console.log(this.shop);
+        this.shop_all.push(this.shop);
+      }, (err) => {
+        console.error(err);
+      });
+      
+    }
+    console.log(this.shop_all);
+  }
   gohomePage() {
     this.navCtrl.setRoot(HomePage);
   }
-  getbill() {
-
-    this.authService.postData(this.id, "getOrderById").then((result) => {
-      this.responseData = result;
-      this.data = this.responseData.data;
-      for (let index = 0; index < this.data.length; index++) {
-        if (this.shop_id.length == 0) {
-          this.shop_id.push(this.data[index].shop_id);
-        } else {
-          for (let index2 = 0; index2 < this.shop_id.length; index2++) {
-            if (this.shop_id[index2] == this.data[index].shop_id) {
-              this.push_shopid = false;
-            }
-          }
-          if (this.push_shopid == true) {
-            this.shop_id.push(this.data[index].shop_id);
-          }
-          this.push_shopid = true;
-        }
-      }
-      console.log(this.shop_id);
-      console.log("true");
-    }, (err) => {
-      console.error(err);
-    });
-
-  }
-
-  getnameshop() {
-    this.authService.postData(this.id, "getAllShop").then((result) => {
-      this.responseData = result;
-      this.shop = this.responseData.data;
-      for (let index = 0; index < this.shop_id.length; index++) {
-        for (let index2 = 0; index2 < this.shop.length; index2++) {
-          // console.log(this.shop[index2].name);
-          if (this.shop_id[index] == this.shop[index2].shop_id) {
-            this.shop_name.push(this.shop[index].name);
-
-          }
-        }
-
-
-      }
-      console.log(this.shop_name);
-    
-      console.log(this.shop);
-    }, (err) => {
-      console.error(err);
-    });
-  }
-
   shopinfo(shop_id: string) {
     console.log(shop_id);
     this.navCtrl.push(DetailOrderPage, { shop_id: shop_id });

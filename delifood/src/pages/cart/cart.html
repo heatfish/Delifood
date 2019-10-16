@@ -5,86 +5,88 @@
   Ionic pages and navigation.
 -->
 <ion-header>
-  <ion-navbar color="danger">
-    <ion-title>cart</ion-title>
-    <button ion-button clear style="float:right;font-size:20px;margin-bottom:-2px;margin-top:-1px;" color="white"
-      (click)="gotransport()">
-      <ion-icon name="pin"></ion-icon>&nbsp;ที่อยู่
-    </button>
-  </ion-navbar>
-</ion-header>
-
-<ion-content padding>
-  <h3 style="color:rgb(46, 43, 43)" text-center>เลือกจำนวนอาหาร</h3>
-  <ion-grid>
-
-    <ion-item *ngFor="let d of data;let i =index">
-      <ion-row>
-        <ion-col col-3>
-          <img src="{{d.picture}}">
-        </ion-col>
-        <ion-col col-4>
-          <h2>{{d.name}}</h2>
-          <p>{{d.price}} บาท</p>
-        </ion-col>
-
-        <ion-col col-5>
-          <!-- <button ion-button (click)="removenum()" clear>
-            <ion-icon name="remove" style="color: black"></ion-icon>
-          </button>
-          {{totalfood}}
-          <button ion-button (click)="addnum()" clear>
-            <ion-icon name="add" style="color: black"></ion-icon>
-          </button> -->
-          <ion-item>
-            <ion-input type="number" style="float:right;" (ionChange)="showValue()" maxlength="3"
-              [(ngModel)]="totalfood[i]"></ion-input>
-
-          </ion-item>
-
-        </ion-col>
-
-      </ion-row>
-    </ion-item>
-  </ion-grid>
-
-</ion-content>
-<ion-footer>
-  <ion-card style="background-color:rgb(196, 196, 196);">
+    <ion-navbar color="danger">
+      <ion-title>cart</ion-title>
+      <button ion-button clear style="float:right;font-size:20px;margin-bottom:-2px;margin-top:-1px;" color="white"
+        (click)="gotransport()">
+        <ion-icon name="pin"></ion-icon>&nbsp;ที่อยู่
+      </button>
+    </ion-navbar>
+  </ion-header>
+  
+  <ion-content padding>
+    <h3 style="color:rgb(46, 43, 43)" text-center>เลือกจำนวนอาหาร</h3>
     <ion-grid>
-      <ion-row style="font-size:16px;">
-
-        <ion-col offset-4 style="margin-top:5px;margin-right:-15px">
-
-          <p >
-           
-            <a class="blacktext">รวม</a><br>
-
-            <a class="blacktext">ราคา</a>
-
-          </p>
-
-        </ion-col>
-
-        <ion-col text-left style="margin-top:5px;">
-
-          <a class="graytext"> {{sumtotalfood}}</a><br>
-          <a class="graytext">{{sumprice}} </a>
-
-        </ion-col>
-
-        <ion-col  text-left style="margin-right:10px;margin-top:5px;">
-
-          <a class="blacktext">ชิ้น</a><br>
-          <a class="blacktext">บาท</a>
-
-        </ion-col>
-
-        <ion-col col-2 text-right>
-          <button ion-button style="float:right;" (click)="addtobilldetail(sumprice,sumtotalfood)" color="darkgray" >สั่ง</button>
-        </ion-col>
-
-      </ion-row>
+  
+      <ion-item *ngFor="let d of data;let i =index">
+        <ion-row>
+          <ion-col col-3>
+            <img src="{{d.picture}}">
+          </ion-col>
+          <ion-col col-4>
+            <h2>{{d.name}}</h2>
+            <p>{{d.price}} บาท</p>
+            
+          </ion-col>
+  
+          <ion-col col-5>
+            <!-- <button ion-button (click)="removenum()" clear>
+              <ion-icon name="remove" style="color: black"></ion-icon>
+            </button>
+            {{totalfood}}
+            <button ion-button (click)="addnum()" clear>
+              <ion-icon name="add" style="color: black"></ion-icon>
+            </button> -->
+            <ion-item>
+              <ion-input type="number" style="float:right;" (ionChange)="showValue()" maxlength="3" (click)="tabtoclear(i)"
+                [(ngModel)]="totalfood[i]"></ion-input>
+  
+            </ion-item>
+  
+          </ion-col>
+  
+        </ion-row>
+      </ion-item>
     </ion-grid>
-  </ion-card>
-</ion-footer>
+  
+  </ion-content>
+  <ion-footer>
+    <ion-card style="background-color:rgb(196, 196, 196);">
+      <ion-grid>
+        <ion-row style="font-size:16px;">
+  
+          <ion-col offset-4 style="margin-top:5px;margin-right:-15px">
+  
+            <p >
+             
+              <a class="blacktext">รวม</a><br>
+  
+              <a class="blacktext">ราคา</a>
+  
+            </p>
+  
+          </ion-col>
+  
+          <ion-col text-left style="margin-top:5px;">
+  
+            <a class="graytext"> {{sumtotalfood}}</a><br>
+            <a class="graytext">{{sumprice}} </a>
+  
+          </ion-col>
+  
+          <ion-col  text-left style="margin-right:10px;margin-top:5px;">
+  
+            <a class="blacktext">ชิ้น</a><br>
+            <a class="blacktext">บาท</a>
+  
+          </ion-col>
+  
+          <ion-col col-2 text-right>
+            <button ion-button style="float:right;" (click)="addtobilldetail(sumprice,sumtotalfood)" color="darkgray" >สั่ง</button>
+  
+          </ion-col>
+  
+        </ion-row>
+      </ion-grid>
+    </ion-card>
+  </ion-footer>
