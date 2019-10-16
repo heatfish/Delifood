@@ -51571,6 +51571,10 @@ page-menu .shop-name-label {
   float: left;
 }
 
+.order {
+  padding-top: 10px;
+}
+
 .div {
   padding: 10px;
 }

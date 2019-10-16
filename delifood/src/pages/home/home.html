@@ -13,6 +13,8 @@
 </ion-header>
 
 <ion-content class="content">
+        <button ion-button outline block color="danger" (click)="goorderlistPage()">OrderPage</button>
+
     <div class="bg-image"></div>
     <div class="order-btn">
         <button *ngIf="authService.login_status==true" ion-button outline block color="danger" (click)="goorderlistPage()">OrderPage</button>
