@@ -51468,28 +51468,6 @@ page-home ion-navbar {
   color: #f53d3d;
 }
 
-page-home .icon {
-  float: right;
-  color: white;
-  right: -10px;
-}
-
-page-home .fabcon {
-  background-color: red;
-}
-
-page-home .background-gray {
-  background-color: #f1efef;
-}
-
-page-home .gray {
-  background: gray;
-}
-
-page-home .content {
-  background-color: black;
-}
-
 page-home .shop-img {
   text-align: center;
   border-radius: 10px;
@@ -51573,6 +51551,36 @@ page-menu .shop-name-label {
 
 .order {
   padding-top: 10px;
+}
+
+.icon {
+  float: right;
+  color: white;
+  right: 10px;
+}
+
+.fabcon {
+  background-color: red;
+}
+
+.background-gray {
+  background-color: #f1efef;
+}
+
+.gray {
+  background: gray;
+}
+
+.content {
+  background-color: black;
+}
+
+.bg-darkgray {
+  background-color: #131313;
+}
+
+.text-white {
+  color: white;
 }
 
 .div {

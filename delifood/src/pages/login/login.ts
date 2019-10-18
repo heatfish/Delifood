@@ -8,6 +8,7 @@ import { empty } from 'rxjs/Observer';
 // import { GooglePlus } from '@ionic-native/google-plus';
 import { LoginProvider } from '../../providers/login/login';
 
+
 /**
  * Generated class for the LoginPage page.
  *
@@ -25,10 +26,14 @@ export class LoginPage {
   data: any;
 
   check = {
-    username: "d",
-    password: "d"
+    username: "",
+    password: ""
   }
 
+  todo = {
+    title: "",
+    description: ""
+  };
 
 
   constructor( public navCtrl: NavController, public navParams: NavParams, public authService: AuthService, public alertCtrl: AlertController) {
@@ -75,6 +80,8 @@ export class LoginPage {
   gohomePage() {
     this.navCtrl.setRoot(HomePage);
   }
+
+
 
 }
 

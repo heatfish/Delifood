@@ -29,7 +29,7 @@ export class DetailOrderPage {
 
 getAllDetail(){
   this.datas.user_id=this.id;
-  this.authService.postData(this.datas , "getDetailBillById").then((result) => {
+  this.authService.postData(this.datas.shop_id , "getDetailBillById").then((result) => {
     this.responseData = result;
     this.data = this.responseData.data;
     console.log(this.data);

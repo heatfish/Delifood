@@ -82,6 +82,11 @@ export class OrderListPage {
     console.log(shop_id);
     this.navCtrl.push(DetailOrderPage, { shop_id: shop_id });
   }
+  goDetailOrder(shop_id:string){
+    this.navCtrl.push(DetailOrderPage,{shop_id:shop_id});
+    // console.log(shop_id);
+    
+  }
 }
 
 

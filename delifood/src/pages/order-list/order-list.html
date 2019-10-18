@@ -3,19 +3,21 @@
     <ion-title>
       order-list
     </ion-title>
-    <button ion-button clear class="icon" (click)="gohomePage()">
-      <ion-icon name="home"></ion-icon>
-    </button>
+    <ion-buttons end>
+        <button ion-button clear class="icon" (click)="gohomePage()">
+            <ion-icon name="home"></ion-icon>
+        </button>
+    </ion-buttons>
   </ion-navbar>
 </ion-header>
 
-<ion-content padding class="background-gray">
+<ion-content padding class="content">
   <!-- <ion-item *ngFor="let n of shop_name">
 {{n}}
   </ion-item> -->
 
   <!-- {{shop_all[0].name}} -->
-  <ion-card *ngFor=" let d of shop_all;let i = index" >
+  <ion-card *ngFor=" let d of shop_all;let i = index" class="bg-darkgray">
     <ion-grid >
       <ion-row >
 
@@ -25,13 +27,14 @@
           </ion-thumbnail>
         </ion-col>
         <ion-col col-5 class="order">
-          <b class="left" style="font-size:16px ;">ร้าน {{d[0].name}}<br>
-            <button ion-button outline (click)="gettest()"small>รายละเอียด</button></b><br>
+          <b class="left" style="font-size:16px ;color: white;">ร้าน {{d[0].name}}<br>
+            <button ion-button outline (click)="goDetailOrder(d[0].shop_id)"small>รายละเอียด</button></b><br>
         </ion-col>
         <ion-col col-3 class="order">
           <p class="right" >
-          <label>รวม <a>{{data[i].totalsum}}</a> ชิ้น</label><br>
-          <label>ราคา <a>{{data[i].pricesum}}</a> บาท</label>
+            <label >รวม<br></label>
+          <label > <a>{{data[i].totalsum}}</a> ชิ้น</label><br>
+          <label><a>{{data[i].pricesum}}</a> บาท</label>
           </p>
         </ion-col>
 
