@@ -38,7 +38,7 @@ var DetailOrderPage = /** @class */ (function () {
     DetailOrderPage.prototype.getAllDetail = function () {
         var _this = this;
         this.datas.user_id = this.id;
-        this.authService.postData(this.datas, "getDetailBillById").then(function (result) {
+        this.authService.postData(this.datas.shop_id, "getDetailBillById").then(function (result) {
             _this.responseData = result;
             _this.data = _this.responseData.data;
             console.log(_this.data);
@@ -64,6 +64,85 @@ var DetailOrderPage = /** @class */ (function () {
 /***/ }),
 
 /***/ 105:
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return AddItemPage; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__providers_auth_service_auth_service__ = __webpack_require__(13);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_core__ = __webpack_require__(0);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_ionic_angular__ = __webpack_require__(11);
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+
+
+/**
+ * Generated class for the AddItemPage page.
+ *
+ * See https://ionicframework.com/docs/components/#navigation for more info on
+ * Ionic pages and navigation.
+ */
+var AddItemPage = /** @class */ (function () {
+    function AddItemPage(navCtrl, authService, alertCtrl, navParams) {
+        this.navCtrl = navCtrl;
+        this.authService = authService;
+        this.alertCtrl = alertCtrl;
+        this.navParams = navParams;
+        this.data = {
+            name: "",
+            price: "",
+            picture: "",
+            shop_id: ""
+        };
+        this.shop_id = this.navParams.get('shop_id');
+        console.log("รหัสร้าน" + this.shop_id);
+        this.data.shop_id = this.shop_id;
+    }
+    AddItemPage.prototype.Item = function () {
+        var _this = this;
+        console.log(this.data);
+        var alert = this.alertCtrl.create({
+            title: 'ยืนยันการเพิ่มเมนู',
+            buttons: [
+                { text: 'ยกเลิก' },
+                {
+                    text: 'ตกลง',
+                    handler: function (data) {
+                        _this.authService.postData(_this.data, 'addItem').then(function (result) {
+                            _this.responseData = result;
+                            console.log(_this.responseData);
+                            // this.goMenuPage();
+                            //  this.navCtrl.push(MenuPage);
+                        }, function (err) {
+                            // Error log
+                        });
+                    }
+                }
+            ],
+        });
+        alert.present();
+    };
+    AddItemPage = __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_1__angular_core__["m" /* Component */])({
+            selector: 'page-add-item',template:/*ion-inline-start:"C:\Users\James\Documents\Delifood\delifood\src\pages\add-item\add-item.html"*/'<ion-header>\n  <ion-navbar color="danger">\n    <ion-title>add-item</ion-title>\n  </ion-navbar>\n</ion-header>\n\n<ion-content padding>\n  <ion-list>\n\n    <ion-item>\n      <ion-label floating>Name</ion-label>\n      <ion-input type="text" [(ngModel)]="data.name"></ion-input>\n    </ion-item>\n\n    <ion-item>\n      <ion-label floating>Price</ion-label>\n      <ion-input type="text" [(ngModel)]="data.price"></ion-input>\n    </ion-item>\n\n    <ion-item>\n      <ion-label floating>Picture</ion-label>\n      <ion-input type="text" [(ngModel)]="data.picture"></ion-input>\n    </ion-item>\n\n    <div padding text-center>\n      <button ion-button block (click)="Item()">Add Item</button>\n\n    </div>\n  </ion-list>\n\n</ion-content>'/*ion-inline-end:"C:\Users\James\Documents\Delifood\delifood\src\pages\add-item\add-item.html"*/,
+        }),
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_2_ionic_angular__["f" /* NavController */], __WEBPACK_IMPORTED_MODULE_0__providers_auth_service_auth_service__["a" /* AuthService */], __WEBPACK_IMPORTED_MODULE_2_ionic_angular__["a" /* AlertController */], __WEBPACK_IMPORTED_MODULE_2_ionic_angular__["g" /* NavParams */]])
+    ], AddItemPage);
+    return AddItemPage;
+}());
+
+//# sourceMappingURL=add-item.js.map
+
+/***/ }),
+
+/***/ 106:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -134,7 +213,7 @@ var AddShopPage = /** @class */ (function () {
 
 /***/ }),
 
-/***/ 106:
+/***/ 107:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -185,7 +264,7 @@ var TransportPage = /** @class */ (function () {
 
 /***/ }),
 
-/***/ 107:
+/***/ 108:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -262,12 +341,12 @@ var SignupPage = /** @class */ (function () {
 
 /***/ }),
 
-/***/ 108:
+/***/ 109:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return MenuPage; });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__add_item_add_item__ = __webpack_require__(109);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__add_item_add_item__ = __webpack_require__(105);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__providers_auth_service_auth_service__ = __webpack_require__(13);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__cart_cart__ = __webpack_require__(44);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__angular_core__ = __webpack_require__(0);
@@ -372,85 +451,6 @@ var MenuPage = /** @class */ (function () {
 
 /***/ }),
 
-/***/ 109:
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return AddItemPage; });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__providers_auth_service_auth_service__ = __webpack_require__(13);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_ionic_angular__ = __webpack_require__(11);
-var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
-    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
-    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
-    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
-    return c > 3 && r && Object.defineProperty(target, key, r), r;
-};
-var __metadata = (this && this.__metadata) || function (k, v) {
-    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
-};
-
-
-
-/**
- * Generated class for the AddItemPage page.
- *
- * See https://ionicframework.com/docs/components/#navigation for more info on
- * Ionic pages and navigation.
- */
-var AddItemPage = /** @class */ (function () {
-    function AddItemPage(navCtrl, authService, alertCtrl, navParams) {
-        this.navCtrl = navCtrl;
-        this.authService = authService;
-        this.alertCtrl = alertCtrl;
-        this.navParams = navParams;
-        this.data = {
-            name: "",
-            price: "",
-            picture: "",
-            shop_id: ""
-        };
-        this.shop_id = this.navParams.get('shop_id');
-        console.log("รหัสร้าน" + this.shop_id);
-        this.data.shop_id = this.shop_id;
-    }
-    AddItemPage.prototype.Item = function () {
-        var _this = this;
-        console.log(this.data);
-        var alert = this.alertCtrl.create({
-            title: 'ยืนยันการเพิ่มเมนู',
-            buttons: [
-                { text: 'ยกเลิก' },
-                {
-                    text: 'ตกลง',
-                    handler: function (data) {
-                        _this.authService.postData(_this.data, 'addItem').then(function (result) {
-                            _this.responseData = result;
-                            console.log(_this.responseData);
-                            // this.goMenuPage();
-                            //  this.navCtrl.push(MenuPage);
-                        }, function (err) {
-                            // Error log
-                        });
-                    }
-                }
-            ],
-        });
-        alert.present();
-    };
-    AddItemPage = __decorate([
-        Object(__WEBPACK_IMPORTED_MODULE_1__angular_core__["m" /* Component */])({
-            selector: 'page-add-item',template:/*ion-inline-start:"C:\Users\James\Documents\Delifood\delifood\src\pages\add-item\add-item.html"*/'<ion-header>\n  <ion-navbar color="danger">\n    <ion-title>add-item</ion-title>\n  </ion-navbar>\n</ion-header>\n\n<ion-content padding>\n  <ion-list>\n\n    <ion-item>\n      <ion-label floating>Name</ion-label>\n      <ion-input type="text" [(ngModel)]="data.name"></ion-input>\n    </ion-item>\n\n    <ion-item>\n      <ion-label floating>Price</ion-label>\n      <ion-input type="text" [(ngModel)]="data.price"></ion-input>\n    </ion-item>\n\n    <ion-item>\n      <ion-label floating>Picture</ion-label>\n      <ion-input type="text" [(ngModel)]="data.picture"></ion-input>\n    </ion-item>\n\n    <div padding text-center>\n      <button ion-button block (click)="Item()">Add Item</button>\n\n    </div>\n  </ion-list>\n\n</ion-content>'/*ion-inline-end:"C:\Users\James\Documents\Delifood\delifood\src\pages\add-item\add-item.html"*/,
-        }),
-        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_2_ionic_angular__["f" /* NavController */], __WEBPACK_IMPORTED_MODULE_0__providers_auth_service_auth_service__["a" /* AuthService */], __WEBPACK_IMPORTED_MODULE_2_ionic_angular__["a" /* AlertController */], __WEBPACK_IMPORTED_MODULE_2_ionic_angular__["g" /* NavParams */]])
-    ], AddItemPage);
-    return AddItemPage;
-}());
-
-//# sourceMappingURL=add-item.js.map
-
-/***/ }),
-
 /***/ 110:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
@@ -536,9 +536,13 @@ var OrderListPage = /** @class */ (function () {
         console.log(shop_id);
         this.navCtrl.push(__WEBPACK_IMPORTED_MODULE_0__detail_order_detail_order__["a" /* DetailOrderPage */], { shop_id: shop_id });
     };
+    OrderListPage.prototype.goDetailOrder = function (shop_id) {
+        this.navCtrl.push(__WEBPACK_IMPORTED_MODULE_0__detail_order_detail_order__["a" /* DetailOrderPage */], { shop_id: shop_id });
+        // console.log(shop_id);
+    };
     OrderListPage = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_3__angular_core__["m" /* Component */])({
-            selector: 'page-order-list',template:/*ion-inline-start:"C:\Users\James\Documents\Delifood\delifood\src\pages\order-list\order-list.html"*/'<ion-header>\n  <ion-navbar color="danger">\n    <ion-title>\n      order-list\n    </ion-title>\n    <button ion-button clear class="icon" (click)="gohomePage()">\n      <ion-icon name="home"></ion-icon>\n    </button>\n  </ion-navbar>\n</ion-header>\n\n<ion-content padding class="background-gray">\n  <!-- <ion-item *ngFor="let n of shop_name">\n{{n}}\n  </ion-item> -->\n\n  <!-- {{shop_all[0].name}} -->\n  <ion-card *ngFor=" let d of shop_all;let i = index" >\n    <ion-grid >\n      <ion-row >\n\n        <ion-col col-4>\n          <ion-thumbnail>\n            <img src="{{d[0].picture}}" style="height: 80px;width: auto;">\n          </ion-thumbnail>\n        </ion-col>\n        <ion-col col-5 class="order">\n          <b class="left" style="font-size:16px ;">ร้าน {{d[0].name}}<br>\n            <button ion-button outline (click)="gettest()"small>รายละเอียด</button></b><br>\n        </ion-col>\n        <ion-col col-3 class="order">\n          <p class="right" >\n          <label>รวม <a>{{data[i].totalsum}}</a> ชิ้น</label><br>\n          <label>ราคา <a>{{data[i].pricesum}}</a> บาท</label>\n          </p>\n        </ion-col>\n\n      </ion-row>\n    </ion-grid>\n  </ion-card>\n\n\n\n\n</ion-content>'/*ion-inline-end:"C:\Users\James\Documents\Delifood\delifood\src\pages\order-list\order-list.html"*/,
+            selector: 'page-order-list',template:/*ion-inline-start:"C:\Users\James\Documents\Delifood\delifood\src\pages\order-list\order-list.html"*/'<ion-header>\n\n  <ion-navbar color="danger">\n\n    <ion-title>\n\n      order-list\n\n    </ion-title>\n\n    <ion-buttons end>\n\n        <button ion-button clear class="icon" (click)="gohomePage()">\n\n            <ion-icon name="home"></ion-icon>\n\n        </button>\n\n    </ion-buttons>\n\n  </ion-navbar>\n\n</ion-header>\n\n\n\n<ion-content padding class="content">\n\n  <!-- <ion-item *ngFor="let n of shop_name">\n\n{{n}}\n\n  </ion-item> -->\n\n\n\n  <!-- {{shop_all[0].name}} -->\n\n  <ion-card *ngFor=" let d of shop_all;let i = index" class="bg-darkgray">\n\n    <ion-grid >\n\n      <ion-row >\n\n\n\n        <ion-col col-4>\n\n          <ion-thumbnail>\n\n            <img src="{{d[0].picture}}" style="height: 80px;width: auto;">\n\n          </ion-thumbnail>\n\n        </ion-col>\n\n        <ion-col col-5 class="order">\n\n          <b class="left" style="font-size:16px ;color: white;">ร้าน {{d[0].name}}<br>\n\n            <button ion-button outline (click)="goDetailOrder(d[0].shop_id)"small>รายละเอียด</button></b><br>\n\n        </ion-col>\n\n        <ion-col col-3 class="order">\n\n          <p class="right" >\n\n            <label >รวม<br></label>\n\n          <label > <a>{{data[i].totalsum}}</a> ชิ้น</label><br>\n\n          <label><a>{{data[i].pricesum}}</a> บาท</label>\n\n          </p>\n\n        </ion-col>\n\n\n\n      </ion-row>\n\n    </ion-grid>\n\n  </ion-card>\n\n\n\n\n\n\n\n\n\n</ion-content>'/*ion-inline-end:"C:\Users\James\Documents\Delifood\delifood\src\pages\order-list\order-list.html"*/,
         }),
         __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_4_ionic_angular__["f" /* NavController */], __WEBPACK_IMPORTED_MODULE_4_ionic_angular__["g" /* NavParams */],
             __WEBPACK_IMPORTED_MODULE_1__providers_auth_service_auth_service__["a" /* AuthService */], __WEBPACK_IMPORTED_MODULE_4_ionic_angular__["a" /* AlertController */]])
@@ -623,31 +627,31 @@ var AuthService = /** @class */ (function () {
 
 var map = {
 	"../pages/account/account.module": [
-		288,
+		291,
 		9
 	],
 	"../pages/add-item/add-item.module": [
-		289,
+		288,
 		8
 	],
 	"../pages/add-shop/add-shop.module": [
-		290,
+		289,
 		7
 	],
 	"../pages/cart/cart.module": [
-		291,
+		290,
 		6
 	],
 	"../pages/detail-order/detail-order.module": [
-		292,
+		294,
 		5
 	],
 	"../pages/login/login.module": [
-		293,
+		292,
 		4
 	],
 	"../pages/menu/menu.module": [
-		294,
+		293,
 		3
 	],
 	"../pages/order-list/order-list.module": [
@@ -814,11 +818,11 @@ Object(__WEBPACK_IMPORTED_MODULE_0__angular_platform_browser_dynamic__["a" /* pl
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return AppModule; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__pages_detail_order_detail_order__ = __webpack_require__(104);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__pages_add_shop_add_shop__ = __webpack_require__(105);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__pages_transport_transport__ = __webpack_require__(106);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__pages_add_item_add_item__ = __webpack_require__(109);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__pages_add_shop_add_shop__ = __webpack_require__(106);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__pages_transport_transport__ = __webpack_require__(107);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__pages_add_item_add_item__ = __webpack_require__(105);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__pages_account_account__ = __webpack_require__(209);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__pages_signup_signup__ = __webpack_require__(107);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__pages_signup_signup__ = __webpack_require__(108);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__angular_platform_browser__ = __webpack_require__(28);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_8_ionic_angular__ = __webpack_require__(11);
@@ -829,7 +833,7 @@ Object(__WEBPACK_IMPORTED_MODULE_0__angular_platform_browser_dynamic__["a" /* pl
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_13__app_component__ = __webpack_require__(287);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_14__pages_home_home__ = __webpack_require__(34);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_15__pages_login_login__ = __webpack_require__(35);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_16__pages_menu_menu__ = __webpack_require__(108);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_16__pages_menu_menu__ = __webpack_require__(109);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_17__pages_cart_cart__ = __webpack_require__(44);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_18__pages_order_list_order_list__ = __webpack_require__(110);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_19__providers_login_login__ = __webpack_require__(165);
@@ -884,13 +888,13 @@ var AppModule = /** @class */ (function () {
                 __WEBPACK_IMPORTED_MODULE_6__angular_platform_browser__["a" /* BrowserModule */], __WEBPACK_IMPORTED_MODULE_11__angular_http__["c" /* HttpModule */],
                 __WEBPACK_IMPORTED_MODULE_8_ionic_angular__["d" /* IonicModule */].forRoot(__WEBPACK_IMPORTED_MODULE_13__app_component__["a" /* MyApp */], {}, {
                     links: [
-                        { loadChildren: '../pages/account/account.module#AccountPageModule', name: 'AccountPage', segment: 'account', priority: 'low', defaultHistory: [] },
                         { loadChildren: '../pages/add-item/add-item.module#AddItemPageModule', name: 'AddItemPage', segment: 'add-item', priority: 'low', defaultHistory: [] },
                         { loadChildren: '../pages/add-shop/add-shop.module#AddShopPageModule', name: 'AddShopPage', segment: 'add-shop', priority: 'low', defaultHistory: [] },
                         { loadChildren: '../pages/cart/cart.module#CartPageModule', name: 'CartPage', segment: 'cart', priority: 'low', defaultHistory: [] },
-                        { loadChildren: '../pages/detail-order/detail-order.module#DetailOrderPageModule', name: 'DetailOrderPage', segment: 'detail-order', priority: 'low', defaultHistory: [] },
+                        { loadChildren: '../pages/account/account.module#AccountPageModule', name: 'AccountPage', segment: 'account', priority: 'low', defaultHistory: [] },
                         { loadChildren: '../pages/login/login.module#LoginPageModule', name: 'LoginPage', segment: 'login', priority: 'low', defaultHistory: [] },
                         { loadChildren: '../pages/menu/menu.module#MenuPageModule', name: 'MenuPage', segment: 'menu', priority: 'low', defaultHistory: [] },
+                        { loadChildren: '../pages/detail-order/detail-order.module#DetailOrderPageModule', name: 'DetailOrderPage', segment: 'detail-order', priority: 'low', defaultHistory: [] },
                         { loadChildren: '../pages/order-list/order-list.module#OrderListPageModule', name: 'OrderListPage', segment: 'order-list', priority: 'low', defaultHistory: [] },
                         { loadChildren: '../pages/signup/signup.module#SignupPageModule', name: 'SignupPage', segment: 'signup', priority: 'low', defaultHistory: [] },
                         { loadChildren: '../pages/transport/transport.module#TransportPageModule', name: 'TransportPage', segment: 'transport', priority: 'low', defaultHistory: [] }
@@ -979,11 +983,11 @@ var MyApp = /** @class */ (function () {
 
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return HomePage; });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__add_shop_add_shop__ = __webpack_require__(105);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__add_shop_add_shop__ = __webpack_require__(106);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__providers_auth_service_auth_service__ = __webpack_require__(13);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__cart_cart__ = __webpack_require__(44);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__login_login__ = __webpack_require__(35);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__menu_menu__ = __webpack_require__(108);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__menu_menu__ = __webpack_require__(109);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_6_ionic_angular__ = __webpack_require__(11);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__order_list_order_list__ = __webpack_require__(110);
@@ -1037,7 +1041,7 @@ var HomePage = /** @class */ (function () {
     };
     HomePage = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_5__angular_core__["m" /* Component */])({
-            selector: 'page-home',template:/*ion-inline-start:"C:\Users\James\Documents\Delifood\delifood\src\pages\home\home.html"*/'<ion-header>\n\n    <ion-navbar color="danger">\n\n        <ion-title text-center>\n\n            Food deli\n\n        </ion-title>\n\n        <ion-buttons end>\n\n            <button ion-button clear *ngIf="authService.login_status==true" class="icon" (click)="goCartPage()"><ion-icon name="cart"></ion-icon> </button>\n\n            <button ion-button *ngIf="authService.login_status==false" (click)="goLoginPage()"><ion-icon name="log-in" style="font-size:30px"></ion-icon></button>\n\n\n\n        </ion-buttons>\n\n\n\n    </ion-navbar>\n\n</ion-header>\n\n\n\n<ion-content class="content">\n\n        <button ion-button outline block color="danger" (click)="goorderlistPage()">OrderPage</button>\n\n\n\n    <div class="bg-image"></div>\n\n    <div class="order-btn">\n\n        <button *ngIf="authService.login_status==true" ion-button outline block color="danger" (click)="goorderlistPage()">OrderPage</button>\n\n    </div>\n\n    <!-- \n\n    <ion-item *ngFor="let d of data" (click)="goMenuPage(d.shop_id)">\n\n        <ion-thumbnail item-start>\n\n            <img src="{{d.picture}}">\n\n        </ion-thumbnail>\n\n        <h2>ร้าน{{d.name}}</h2>\n\n        รหัสร้าน {{d.shop_id}}\n\n    </ion-item> -->\n\n\n\n\n\n    <div *ngFor="let d of data" (click)="goMenuPage(d.shop_id,d.name)">\n\n        <div class="shop-name">\n\n            <h2>ร้าน{{d.name}}</h2>\n\n            <p class="about-shop">ฝากท้องได้ทุกเย็นที่ร้าน “นายดำ” ร้านบะหมี่เกี๊ยวที่เปิดมาแล้วกว่า 32 ปี ทั้งบะหมี่เกี๊ยวและข้าวหมูแดงหมูกรอบ พร้อมเมนูใหม่ก๋วยเตี๋ยวเรือ!</p>\n\n        </div>\n\n        <div class="shop-img">\n\n\n\n            <img src="{{d.picture}}">\n\n        </div>\n\n\n\n    </div>\n\n\n\n    <ion-fab right bottom *ngIf="authService.login_status==true" (click)="goaddshopPage()">\n\n        <button ion-fab class="fabcon">\n\n      <ion-icon name="add" style="font-size:40px "></ion-icon>\n\n    </button>\n\n    </ion-fab>\n\n\n\n\n\n\n\n</ion-content>'/*ion-inline-end:"C:\Users\James\Documents\Delifood\delifood\src\pages\home\home.html"*/
+            selector: 'page-home',template:/*ion-inline-start:"C:\Users\James\Documents\Delifood\delifood\src\pages\home\home.html"*/'<ion-header>\n\n    <ion-navbar color="danger">\n\n        <ion-title text-center>\n\n            Food deli\n\n        </ion-title>\n\n        <ion-buttons end>\n\n            <button ion-button clear *ngIf="authService.login_status==true"  (click)="goCartPage()" style="margin-right:10px;">\n\n                <ion-icon name="cart"></ion-icon>\n\n            </button>\n\n            <button ion-button *ngIf="authService.login_status==true" (click)="goLoginPage()">\n\n                <ion-icon name="contact" style="font-size:30px"></ion-icon>\n\n            </button>\n\n            <button ion-button *ngIf="authService.login_status==false" (click)="goLoginPage()">\n\n                <ion-icon name="contact" style="font-size:30px"></ion-icon>\n\n            </button>\n\n\n\n        </ion-buttons>\n\n\n\n    </ion-navbar>\n\n</ion-header>\n\n\n\n<ion-content class="content">\n\n    <button ion-button outline block color="danger" (click)="goorderlistPage()">OrderPage</button>\n\n\n\n    <div class="bg-image"></div>\n\n\n\n    <!-- \n\n    <ion-item *ngFor="let d of data" (click)="goMenuPage(d.shop_id)">\n\n        <ion-thumbnail item-start>\n\n            <img src="{{d.picture}}">\n\n        </ion-thumbnail>\n\n        <h2>ร้าน{{d.name}}</h2>\n\n        รหัสร้าน {{d.shop_id}}\n\n    </ion-item> -->\n\n\n\n\n\n    <div *ngFor="let d of data" (click)="goMenuPage(d.shop_id,d.name)" style="margin-bottom:10px;margin-right:10px;\n\n    margin-left:10px;background-color:rgb(19, 19, 19) ;">\n\n        <div class="shop-name">\n\n            <h2>ร้าน {{d.name}}</h2>\n\n            <p class="about-shop">ฝากท้องได้ทุกเย็นที่ร้าน “นายดำ” ร้านบะหมี่เกี๊ยวที่เปิดมาแล้วกว่า 32 ปี\n\n                ทั้งบะหมี่เกี๊ยวและข้าวหมูแดงหมูกรอบ พร้อมเมนูใหม่ก๋วยเตี๋ยวเรือ!</p>\n\n        </div>\n\n        <div class="shop-img">\n\n\n\n            <img src="{{d.picture}}">\n\n        </div>\n\n\n\n    </div>\n\n\n\n    <ion-fab right bottom *ngIf="authService.login_status==true" (click)="goaddshopPage()">\n\n        <button ion-fab class="fabcon">\n\n            <ion-icon name="add" style="font-size:40px "></ion-icon>\n\n        </button>\n\n    </ion-fab>\n\n\n\n\n\n\n\n</ion-content>'/*ion-inline-end:"C:\Users\James\Documents\Delifood\delifood\src\pages\home\home.html"*/
         }),
         __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_6_ionic_angular__["f" /* NavController */], __WEBPACK_IMPORTED_MODULE_1__providers_auth_service_auth_service__["a" /* AuthService */]])
     ], HomePage);
@@ -1055,7 +1059,7 @@ var HomePage = /** @class */ (function () {
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return LoginPage; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__providers_auth_service_auth_service__ = __webpack_require__(13);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__home_home__ = __webpack_require__(34);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__signup_signup__ = __webpack_require__(107);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__signup_signup__ = __webpack_require__(108);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_ionic_angular__ = __webpack_require__(11);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
@@ -1085,8 +1089,12 @@ var LoginPage = /** @class */ (function () {
         this.authService = authService;
         this.alertCtrl = alertCtrl;
         this.check = {
-            username: "d",
-            password: "d"
+            username: "",
+            password: ""
+        };
+        this.todo = {
+            title: "",
+            description: ""
         };
     }
     LoginPage.prototype.alert = function () {
@@ -1128,7 +1136,7 @@ var LoginPage = /** @class */ (function () {
     };
     LoginPage = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_3__angular_core__["m" /* Component */])({
-            selector: 'page-login',template:/*ion-inline-start:"C:\Users\James\Documents\Delifood\delifood\src\pages\login\login.html"*/'<!--\n\n  Generated template for the LoginPage page.\n\n\n\n  See http://ionicframework.com/docs/components/#navigation for more info on\n\n  Ionic pages and navigation.\n\n-->\n\n<ion-header>\n\n    <ion-navbar color="danger">\n\n        <ion-title text-center>Log In</ion-title>\n\n        <ion-buttons end>\n\n            <button ion-button clear class="icon" (click)="gohomePage()">\n\n                <ion-icon name="home"></ion-icon>\n\n            </button>\n\n        </ion-buttons>\n\n    </ion-navbar>\n\n</ion-header>\n\n\n\n<ion-content text-center>\n\n    <div class="content">\n\n        <div class="login-lebel">\n\n            <ion-label>LOGIN</ion-label>\n\n        </div>\n\n        <div class="username-input">\n\n            <ion-item>\n\n                <ion-label>Username</ion-label>\n\n                <ion-input type="text" [(ngModel)]="check.username"></ion-input>\n\n            </ion-item>\n\n        </div>\n\n        <div class="password-input">\n\n            <ion-item>\n\n\n\n                <ion-label>Password</ion-label>\n\n                <ion-input type="password" [(ngModel)]="check.password"></ion-input>\n\n            </ion-item>\n\n        </div>\n\n\n\n\n\n        <div padding text-center>\n\n            <div>\n\n\n\n                <button ion-button full (click)="login()" color="dark">Log In</button>\n\n            </div>\n\n\n\n            <div class="or-label">\n\n                <ion-label color="light"> or </ion-label>\n\n            </div>\n\n            <div>\n\n\n\n                <button ion-button full (click)="goSignupPage()" color="dark">Sign Up</button>\n\n            </div>\n\n\n\n        </div>\n\n\n\n    </div>\n\n</ion-content>'/*ion-inline-end:"C:\Users\James\Documents\Delifood\delifood\src\pages\login\login.html"*/,
+            selector: 'page-login',template:/*ion-inline-start:"C:\Users\James\Documents\Delifood\delifood\src\pages\login\login.html"*/'<!--\n\n  Generated template for the LoginPage page.\n\n\n\n  See http://ionicframework.com/docs/components/#navigation for more info on\n\n  Ionic pages and navigation.\n\n-->\n\n<ion-header>\n\n    <ion-navbar color="danger">\n\n        <ion-title text-center>Log In</ion-title>\n\n        <ion-buttons end>\n\n            <button ion-button clear class="icon" (click)="gohomePage()">\n\n                <ion-icon name="home"></ion-icon>\n\n            </button>\n\n        </ion-buttons>\n\n    </ion-navbar>\n\n</ion-header>\n\n\n\n<ion-content text-center>\n\n    <div class="content">\n\n        <div class="login-lebel">\n\n            <ion-label>LOGIN</ion-label>\n\n        </div>\n\n        <div class="username-input">\n\n            <ion-item>\n\n                <ion-label>Username</ion-label>\n\n                <ion-input type="text" [(ngModel)]="check.username" required ></ion-input>\n\n            </ion-item>\n\n        </div>\n\n        <div class="password-input">\n\n            <ion-item>\n\n\n\n                <ion-label>Password</ion-label>\n\n                <ion-input type="password" [(ngModel)]="check.password"></ion-input>\n\n            </ion-item>\n\n        </div>\n\n\n\n\n\n        <div padding text-center>\n\n            <div>\n\n\n\n                <button ion-button full (click)="login()" color="dark">Log In</button>\n\n            </div>\n\n\n\n            <div class="or-label">\n\n                <ion-label color="light"> or </ion-label>\n\n            </div>\n\n            <div>\n\n\n\n                <button ion-button full (click)="goSignupPage()" color="dark">Sign Up</button>\n\n            </div>\n\n\n\n        </div>\n\n\n\n    </div>\n\n\n\n\n\n\n\n</ion-content>'/*ion-inline-end:"C:\Users\James\Documents\Delifood\delifood\src\pages\login\login.html"*/,
         }),
         __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_4_ionic_angular__["f" /* NavController */], __WEBPACK_IMPORTED_MODULE_4_ionic_angular__["g" /* NavParams */], __WEBPACK_IMPORTED_MODULE_0__providers_auth_service_auth_service__["a" /* AuthService */], __WEBPACK_IMPORTED_MODULE_4_ionic_angular__["a" /* AlertController */]])
     ], LoginPage);
@@ -1145,7 +1153,7 @@ var LoginPage = /** @class */ (function () {
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return CartPage; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__providers_auth_service_auth_service__ = __webpack_require__(13);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__transport_transport__ = __webpack_require__(106);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__transport_transport__ = __webpack_require__(107);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_ionic_angular__ = __webpack_require__(11);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
@@ -1252,12 +1260,11 @@ var CartPage = /** @class */ (function () {
     };
     CartPage = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_2__angular_core__["m" /* Component */])({
-            selector: 'page-cart',template:/*ion-inline-start:"C:\Users\James\Documents\Delifood\delifood\src\pages\cart\cart.html"*/'<!--\n  Generated template for the CartPage page.\n\n  See http://ionicframework.com/docs/components/#navigation for more info on\n  Ionic pages and navigation.\n-->\n<ion-header>\n    <ion-navbar color="danger">\n      <ion-title>cart</ion-title>\n      <button ion-button clear style="float:right;font-size:20px;margin-bottom:-2px;margin-top:-1px;" color="white"\n        (click)="gotransport()">\n        <ion-icon name="pin"></ion-icon>&nbsp;ที่อยู่\n      </button>\n    </ion-navbar>\n  </ion-header>\n  \n  <ion-content padding>\n    <h3 style="color:rgb(46, 43, 43)" text-center>เลือกจำนวนอาหาร</h3>\n    <ion-grid>\n  \n      <ion-item *ngFor="let d of data;let i =index">\n        <ion-row>\n          <ion-col col-3>\n            <img src="{{d.picture}}">\n          </ion-col>\n          <ion-col col-4>\n            <h2>{{d.name}}</h2>\n            <p>{{d.price}} บาท</p>\n            \n          </ion-col>\n  \n          <ion-col col-5>\n            <!-- <button ion-button (click)="removenum()" clear>\n              <ion-icon name="remove" style="color: black"></ion-icon>\n            </button>\n            {{totalfood}}\n            <button ion-button (click)="addnum()" clear>\n              <ion-icon name="add" style="color: black"></ion-icon>\n            </button> -->\n            <ion-item>\n              <ion-input type="number" style="float:right;" (ionChange)="showValue()" maxlength="3" (click)="tabtoclear(i)"\n                [(ngModel)]="totalfood[i]"></ion-input>\n  \n            </ion-item>\n  \n          </ion-col>\n  \n        </ion-row>\n      </ion-item>\n    </ion-grid>\n  \n  </ion-content>\n  <ion-footer>\n    <ion-card style="background-color:rgb(196, 196, 196);">\n      <ion-grid>\n        <ion-row style="font-size:16px;">\n  \n          <ion-col offset-4 style="margin-top:5px;margin-right:-15px">\n  \n            <p >\n             \n              <a class="blacktext">รวม</a><br>\n  \n              <a class="blacktext">ราคา</a>\n  \n            </p>\n  \n          </ion-col>\n  \n          <ion-col text-left style="margin-top:5px;">\n  \n            <a class="graytext"> {{sumtotalfood}}</a><br>\n            <a class="graytext">{{sumprice}} </a>\n  \n          </ion-col>\n  \n          <ion-col  text-left style="margin-right:10px;margin-top:5px;">\n  \n            <a class="blacktext">ชิ้น</a><br>\n            <a class="blacktext">บาท</a>\n  \n          </ion-col>\n  \n          <ion-col col-2 text-right>\n            <button ion-button style="float:right;" (click)="addtobilldetail(sumprice,sumtotalfood)" color="darkgray" >สั่ง</button>\n  \n          </ion-col>\n  \n        </ion-row>\n      </ion-grid>\n    </ion-card>\n  </ion-footer>'/*ion-inline-end:"C:\Users\James\Documents\Delifood\delifood\src\pages\cart\cart.html"*/,
+            selector: 'page-cart',template:/*ion-inline-start:"C:\Users\James\Documents\Delifood\delifood\src\pages\cart\cart.html"*/'<!--\n\n  Generated template for the CartPage page.\n\n\n\n  See http://ionicframework.com/docs/components/#navigation for more info on\n\n  Ionic pages and navigation.\n\n-->\n\n<ion-header>\n\n    <ion-navbar color="danger">\n\n      <ion-title>cart</ion-title>\n\n      <button ion-button clear style="float:right;font-size:20px;margin-bottom:-2px;margin-top:-1px;" color="white"\n\n        (click)="gotransport()">\n\n        <ion-icon name="pin"></ion-icon>&nbsp;ที่อยู่\n\n      </button>\n\n    </ion-navbar>\n\n  </ion-header>\n\n  \n\n  <ion-content padding>\n\n    <h3 style="color:rgb(46, 43, 43)" text-center>เลือกจำนวนอาหาร</h3>\n\n    <ion-grid>\n\n  \n\n      <ion-item *ngFor="let d of data;let i =index">\n\n        <ion-row>\n\n          <ion-col col-3>\n\n            <img src="{{d.picture}}">\n\n          </ion-col>\n\n          <ion-col col-4>\n\n            <h2>{{d.name}}</h2>\n\n            <p>{{d.price}} บาท</p>\n\n            \n\n          </ion-col>\n\n  \n\n          <ion-col col-5>\n\n            <!-- <button ion-button (click)="removenum()" clear>\n\n              <ion-icon name="remove" style="color: black"></ion-icon>\n\n            </button>\n\n            {{totalfood}}\n\n            <button ion-button (click)="addnum()" clear>\n\n              <ion-icon name="add" style="color: black"></ion-icon>\n\n            </button> -->\n\n            <ion-item>\n\n              <ion-input type="number" style="float:right;" (ionChange)="showValue()" maxlength="3" (click)="tabtoclear(i)"\n\n                [(ngModel)]="totalfood[i]"></ion-input>\n\n  \n\n            </ion-item>\n\n  \n\n          </ion-col>\n\n  \n\n        </ion-row>\n\n      </ion-item>\n\n    </ion-grid>\n\n  \n\n  </ion-content>\n\n  <ion-footer>\n\n    <ion-card style="background-color:rgb(196, 196, 196);">\n\n      <ion-grid>\n\n        <ion-row style="font-size:16px;">\n\n  \n\n          <ion-col offset-4 style="margin-top:5px;margin-right:-15px">\n\n  \n\n            <p >\n\n             \n\n              <a class="blacktext">รวม</a><br>\n\n  \n\n              <a class="blacktext">ราคา</a>\n\n  \n\n            </p>\n\n  \n\n          </ion-col>\n\n  \n\n          <ion-col text-left style="margin-top:5px;">\n\n  \n\n            <a class="graytext"> {{sumtotalfood}}</a><br>\n\n            <a class="graytext">{{sumprice}} </a>\n\n  \n\n          </ion-col>\n\n  \n\n          <ion-col  text-left style="margin-right:10px;margin-top:5px;">\n\n  \n\n            <a class="blacktext">ชิ้น</a><br>\n\n            <a class="blacktext">บาท</a>\n\n  \n\n          </ion-col>\n\n  \n\n          <ion-col col-2 text-right>\n\n            <button ion-button style="float:right;" (click)="addtobilldetail(sumprice,sumtotalfood)" color="darkgray" >สั่ง</button>\n\n  \n\n          </ion-col>\n\n  \n\n        </ion-row>\n\n      </ion-grid>\n\n    </ion-card>\n\n  </ion-footer>'/*ion-inline-end:"C:\Users\James\Documents\Delifood\delifood\src\pages\cart\cart.html"*/,
         }),
-        __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_3_ionic_angular__["f" /* NavController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_3_ionic_angular__["f" /* NavController */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_3_ionic_angular__["g" /* NavParams */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_3_ionic_angular__["g" /* NavParams */]) === "function" && _b || Object, typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_0__providers_auth_service_auth_service__["a" /* AuthService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_0__providers_auth_service_auth_service__["a" /* AuthService */]) === "function" && _c || Object])
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_3_ionic_angular__["f" /* NavController */], __WEBPACK_IMPORTED_MODULE_3_ionic_angular__["g" /* NavParams */], __WEBPACK_IMPORTED_MODULE_0__providers_auth_service_auth_service__["a" /* AuthService */]])
     ], CartPage);
     return CartPage;
-    var _a, _b, _c;
 }());
 
 //# sourceMappingURL=cart.js.map
